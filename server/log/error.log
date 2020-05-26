@@ -1,0 +1,58 @@
+[2020-05-24T05:31:06.858Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)[2020-05-24T05:31:28.415Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)[2020-05-24T05:32:19.384Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)
+[2020-05-24T05:32:35.903Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)
+[2020-05-24T05:32:42.630Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)
