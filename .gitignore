@@ -1,0 +1,5 @@
+mongodb-macos-*
+data
+.vscode
+server/node_modules
+client/node_modules

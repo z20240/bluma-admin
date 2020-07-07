@@ -37,7 +37,7 @@ export function getUserInfo(token) {
         token
     };
     return request({
-        url: '/api/user/info',
+        url: '/api/users/info',
         method: 'post',
         data
     });

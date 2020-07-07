@@ -1,7 +1,9 @@
 import { loginByUsername } from '@/api';
+import {setToken, removeToken} from '@/utils/auth';
 
 const state = {
     /* User */
+    userInfo: {},
     userName: null,
     userEmail: null,
     userAvatar: null,
@@ -26,6 +28,7 @@ const mutations = {
 
     /* User */
     LOGIN(state, payload) {
+        state.userInfo = payload;
         state.userName = payload.name;
         state.userEmail = payload.email;
         state.userAvatar = payload.avatar;
@@ -71,7 +74,7 @@ const actions = {
             const {data} = await loginByUsername(payload.name, payload.password);
             console.log('data', data);
 
-            this.$cookie.set('user', data.token);
+            setToken(data.Token);
             commit('LOGIN', user);
 
             return user;
@@ -104,14 +107,20 @@ const actions = {
         }
     },
     userLogout({ commit }) {
-        this.$cookie.remove('user');
+        removeToken();
         commit('LOGIN', {});
 
         return;
+    },
+    userInfo({commit}, payload) {
+        commit('LOGIN', payload);
+
+        return payload;
     }
 };
 
 const getters = {
+    userInfo: state => state.userInfo,
     userName: state => state.userName,
     userEmail: state => state.userEmail,
     userAvatar: state => state.userAvatar,

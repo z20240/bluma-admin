@@ -7,6 +7,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fs = require('fs');
+const createDB = require('./database/mongodb');
 
 var accessLogStream = fs.createWriteStream(
     path.join(__dirname + '/log/', 'access.log'),
@@ -16,6 +17,8 @@ var accessLogStream = fs.createWriteStream(
 var indexRouter = require('./routes/api');
 
 var app = express();
+
+createDB(app, process.env.MONGO_DB);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

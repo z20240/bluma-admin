@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { snackbar } from 'buefy';
+import { SnackbarProgrammatic } from 'buefy';
 import store from '@/store';
 import { getToken, getIP } from '@/utils/auth';
 
@@ -10,22 +10,25 @@ const service = axios.create({
 });
 
 // request interceptor
-service.interceptors.request.use(config => {
-    console.log('config', config);
-    // Do something before request is sent
-    config.headers['Network-Client-IP'] = getIP();
+service.interceptors.request.use(
+    config => {
+        console.log('config', config);
+        // Do something before request is sent
+        config.headers['Network-Client-IP'] = getIP();
 
-    if (store.getters.token) {
-        // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-        // config.headers['X-Token'] = getToken()
-        config.headers['Authorization'] = 'Bearer ' + getToken();
+        if (store.getters.token) {
+            // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
+            // config.headers['X-Token'] = getToken()
+            config.headers['Authorization'] = 'Bearer ' + getToken();
+        }
+        return config;
+    },
+    error => {
+        // Do something with request error
+        console.log(error); // for debug
+        Promise.reject(error);
     }
-    return config;
-}, error => {
-    // Do something with request error
-    console.log(error); // for debug
-    Promise.reject(error);
-});
+);
 
 // response interceptor
 service.interceptors.response.use(
@@ -37,21 +40,27 @@ service.interceptors.response.use(
      */
     response => {
         const { data } = response;
+        console.log('data', data);
+        console.log('Snackbar', SnackbarProgrammatic);
         if (data.StatusCode !== 0) {
-            snackbar.open({
+            SnackbarProgrammatic.open({
                 message: `${data.StatusCode}: ${data.StatusDescription}`,
                 type: 'is-danger',
                 queue: false
             });
             // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
-            if (data.StatusCode === 50008 || data.StatusCode === 50012 || data.StatusCode === 50014) {
+            if (
+                data.StatusCode === 50008 ||
+                data.StatusCode === 50012 ||
+                data.StatusCode === 50014
+            ) {
                 //// Hide warning message went token Expired.
                 // MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or login again', 'Confirm logout', {
                 //     confirmButtonText: 'Login',
                 //     cancelButtonText: 'Cancel',
                 //     type: 'warning'
                 // }).then(() => {
-                store.dispatch('userLogout').then(() => {
+                store.dispatch('app/userLogout').then(() => {
                     location.reload(); // 为了重新实例化vue-router对象 避免bug
                 });
                 // });
@@ -66,7 +75,7 @@ service.interceptors.response.use(
     },
     error => {
         console.log('err' + error); // for debug
-        snackbar.open({
+        SnackbarProgrammatic.open({
             message: `${error.message}`,
             type: 'is-danger',
             queue: false

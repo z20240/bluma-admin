@@ -56,3 +56,172 @@ TypeError: Cannot read property 'sign' of undefined
     at next (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:275:10)
     at Function.handle (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:174:3)
     at router (/Users/les/Desktop/nccu-project/server/node_modules/express/lib/router/index.js:47:12)
+[2020-06-12T15:13:04.659Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-06-12T15:19:16.266Z] Cannot read property 'sign' of undefined
+TypeError: Cannot read property 'sign' of undefined
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:33:26
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-06-12T17:11:53.439Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:60:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-06-12T17:11:55.198Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:60:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-03T17:09:10.361Z] req.app.locals.db.collection is not a function
+TypeError: req.app.locals.db.collection is not a function
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:18:23
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-03T17:10:44.670Z] req.app.locals.db.collection is not a function
+TypeError: req.app.locals.db.collection is not a function
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:19:23
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-03T17:11:15.864Z] req.app.locals.db.collection is not a function
+TypeError: req.app.locals.db.collection is not a function
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:19:23
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-03T17:12:46.896Z] req.app.locals.db.collection(...).findAll is not a function
+TypeError: req.app.locals.db.collection(...).findAll is not a function
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:19:42
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-03T17:13:51.906Z] req.app.locals.db.collection(...).findAll is not a function
+TypeError: req.app.locals.db.collection(...).findAll is not a function
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/routes/api/users.js:19:42
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-07T17:06:31.148Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at logger (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+
+[2020-07-07T17:06:38.233Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at logger (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+
+[2020-07-07T17:06:46.398Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at logger (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/morgan/index.js:144:5)
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+
+[2020-07-07T17:06:54.654Z] Not Found
+NotFoundError: Not Found
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
