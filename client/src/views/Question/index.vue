@@ -5,11 +5,23 @@ import TitleBar from "@/components/TitleBar";
 
 import data from "./questions.json";
 
+const CONST = {
+    EDIT_TYPES: {
+        CREATE: "create",
+        EDIT: "edit",
+    },
+    EDIT_TYPES_MSG: {
+        create: '新增',
+        edit: '編輯'
+    }
+};
+
 export default {
     name: "Question",
     components: { TitleBar, CardComponent },
     data() {
         return {
+            CONST,
             data,
             isPaginated: true,
             isPaginationSimple: true,
@@ -19,7 +31,19 @@ export default {
             defaultSortDirection: "asc",
             sortIcon: "arrow-up",
             currentPage: 1,
-            perPage: 20
+            perPage: 20,
+            pagelist: [10, 20, 50, 90],
+
+            collapseIsOpen: true,
+
+            editType: CONST.EDIT_TYPES.CREATE,
+
+            dataForm: {
+                "id": 0,
+                "question": "",
+                "answers": [],
+                "correct": 0
+            }
         };
     }
 };
@@ -29,13 +53,22 @@ export default {
     <section class="section">
         <title-bar>題庫</title-bar>
 
-        <card-component title="Questions" icon="table">
+        <b-collapse aria-id="question-form-collaspe" animation="slide" :open.sync="collapseIsOpen">
+            <div slot="trigger" class="panel-heading" role="button" aria-controls="question-form-collaspe">
+                <strong>{{ CONST.EDIT_TYPES_MSG[editType] }}題庫</strong>
+            </div>
+
+            <div class="panel-block">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <br />Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus.
+                <br />Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
+            </div>
+        </b-collapse>
+
+        <card-component title="題庫列表" icon="table">
             <b-field grouped group-multiline>
                 <b-select v-model="perPage" :disabled="!isPaginated">
-                    <option :value="10">10筆 / 頁</option>
-                    <option :value="20">20筆 / 頁</option>
-                    <option :value="50">50筆 / 頁</option>
-                    <option :value="90">90筆 / 頁</option>
+                    <option v-for="pl in pagelist" :key="pl" :value="pl">{{pl}}筆 / 頁</option>
                 </b-select>
             </b-field>
 
