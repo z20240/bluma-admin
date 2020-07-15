@@ -12,6 +12,12 @@ export default function() {
             updateMark: true
         },
         {
+            to: '/questions',
+            label: '題庫',
+            icon: 'table',
+            updateMark: true
+        },
+        {
             to: '/forms',
             label: 'Forms',
             icon: 'square-edit-outline'

@@ -43,6 +43,19 @@ const routes = [
             },
             {
                 meta: {
+                    title: '題庫',
+                    requiresAuth: true
+                },
+                path: 'questions',
+                name: 'questions',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: () =>
+                    import(/* webpackChunkName: "tables" */ '@/views/Question'),
+            },
+            {
+                meta: {
                     title: 'Forms',
                     requiresAuth: true
                 },

@@ -5,6 +5,7 @@
                 <div class="level-left">
                     <div class="level-item">
                         <div>
+                            這是頁腳
                             <b>{{ year }}, JustBoil.me</b> &mdash; Admin Two Demo
                             <span class="tag">v1.1.7</span>
                         </div>
@@ -25,18 +26,16 @@
 </template>
 
 <script>
-import moment from 'moment';
-import { mapGetters } from 'vuex';
+import moment from "moment";
+import { mapGetters } from "vuex";
 
 export default {
-    name: 'FooterBar',
+    name: "FooterBar",
     computed: {
         year() {
             return moment().year();
         },
-        ...mapGetters('app', [
-            'isFooterBarVisible'
-        ])
+        ...mapGetters("app", ["isFooterBarVisible"])
     }
 };
 </script>
