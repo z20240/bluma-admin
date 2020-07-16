@@ -3,36 +3,36 @@
         "id": 1,
         "question": "這是題目一",
         "answers": [
-            { "id": "a", "option": "答案1" },
-            { "id": "b", "option": "答案2" },
-            { "id": "c", "option": "答案3" },
-            { "id": "d", "option": "答案4" },
-            { "id": "e", "option": "答案5" }
+            { "id": 1, "option": "答案1" },
+            { "id": 2, "option": "答案2" },
+            { "id": 3, "option": "答案3" },
+            { "id": 4, "option": "答案4" },
+            { "id": 5, "option": "答案5" }
         ],
-        "correct": "a"
+        "correct": 1
     },
     {
         "id": 2,
         "question": "這是題目二",
         "answers": [
-            { "id": "a", "option": "答案1" },
-            { "id": "b", "option": "答案2" },
-            { "id": "c", "option": "答案3" },
-            { "id": "d", "option": "答案4" },
-            { "id": "e", "option": "答案5" }
+            { "id": 1, "option": "答案1" },
+            { "id": 2, "option": "答案2" },
+            { "id": 3, "option": "答案3" },
+            { "id": 4, "option": "答案4" },
+            { "id": 5, "option": "答案5" }
         ],
-        "correct": "b"
+        "correct": 2
     },
     {
         "id": 3,
         "question": "這是題目三",
         "answers": [
-            { "id": "a", "option": "答案1" },
-            { "id": "b", "option": "答案2" },
-            { "id": "c", "option": "答案3" },
-            { "id": "d", "option": "答案4" },
-            { "id": "e", "option": "答案5" }
+            { "id": 1, "option": "答案1" },
+            { "id": 2, "option": "答案2" },
+            { "id": 3, "option": "答案3" },
+            { "id": 4, "option": "答案4" },
+            { "id": 5, "option": "答案5" }
         ],
-        "correct": "c"
+        "correct": 3
     }
 ]
