@@ -589,3 +589,16 @@ UnauthorizedError: No authorization token was found
     at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
     at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
 
+[2020-07-16T16:26:16.554Z] jwt expired
+UnauthorizedError: jwt expired
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express-jwt/lib/index.js:102:22
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/jsonwebtoken/verify.js:152:16
+    at getSecret (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/jsonwebtoken/verify.js:90:14)
+    at Object.module.exports [as verify] (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/jsonwebtoken/verify.js:94:10)
+    at verifyToken (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express-jwt/lib/index.js:100:13)
+    at fn (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/async/lib/async.js:746:34)
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/async/lib/async.js:1213:16
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/async/lib/async.js:166:37
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/async/lib/async.js:706:43
+    at /Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/async/lib/async.js:167:37
+

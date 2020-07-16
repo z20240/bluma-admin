@@ -1,6 +1,6 @@
 
 <script language="javascript">
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 import CardComponent from "@/components/CardComponent";
 import TitleBar from "@/components/TitleBar";
 
@@ -33,39 +33,41 @@ export default {
 
             collaspeIsOpen: true,
 
+            /** @type {import('../../interface/IQuestion').IQuestion} */
             dataForm: {
                 id: 0,
                 question: "",
-                answer: [{ id: 1, option: "" }],
+                answers: [{ id: 1, option: "" }],
                 correct: 1
             }
         };
     },
     computed: {
-        ...mapGetters('question', [
-            'questions',
-            'isloading'
-        ]),
+        ...mapGetters("question", ["questions", "isloading"]),
         editType() {
-            return !this.dataForm.id ? CONST.EDIT_TYPES.CREATE : CONST.EDIT_TYPES.EDIT;
+            return !this.dataForm.id
+                ? CONST.EDIT_TYPES.CREATE
+                : CONST.EDIT_TYPES.EDIT;
         }
-
     },
     mounted() {
         this.getQuestions();
     },
     methods: {
-        ...mapActions('question', [
-            'createQuestion',
-            'getQuestions',
-            'updateQuestion',
-            'deleteQuestion',
+        ...mapActions("question", [
+            "createQuestion",
+            "getQuestions",
+            "updateQuestion",
+            "deleteQuestion"
         ]),
+        reset() {
+            this.$data.dataForm = this.$options.data().dataForm;
+        },
         focusOn(refName, idx = null) {
             if (idx >= 0) this.$refs[refName][idx].focus();
         },
         newAnswerField(refName) {
-            const lastIdx = this.dataForm.answer.length;
+            const lastIdx = this.dataForm.answers.length;
 
             const answerObj = {
                 id: lastIdx + 1,
@@ -74,19 +76,28 @@ export default {
 
             this.dataForm = {
                 ...this.dataForm,
-                answer: [...this.dataForm.answer, answerObj]
+                answers: [...this.dataForm.answers, answerObj]
             };
 
             this.$nextTick(() => this.focusOn(refName, lastIdx));
         },
         okHandler() {
+            const filterOutEmptyOption = dataform => ({
+                ...dataform,
+                answers: dataform.answers.filter(opt => opt.option)
+            });
 
             const actionMap = {
                 [this.CONST.EDIT_TYPES.CREATE]: this.createQuestion,
                 [this.CONST.EDIT_TYPES.EDIT]: this.updateQuestion
             };
 
+            // TODO: validations
+
+            this.dataForm = filterOutEmptyOption(this.dataForm);
             actionMap[this.editType](this.dataForm);
+
+            this.reset();
         }
     }
 };
@@ -122,7 +133,7 @@ export default {
                     </b-field>
                     <div style="width: 100%;">
                         <label class="label">選項</label>
-                        <div v-for="(answer, indx) in dataForm.answer" :key="indx" class="columns">
+                        <div v-for="(answer, indx) in dataForm.answers" :key="indx" class="columns">
                             <b-radio
                                 class="column is-1"
                                 v-model="dataForm.correct"
@@ -133,7 +144,7 @@ export default {
                                 :ref="`answerInput`"
                                 class="column"
                                 type="text"
-                                v-model="answer.question"
+                                v-model="answer.option"
                                 placeholder="範例選項..."
                                 @keyup.enter.native="newAnswerField('answerInput')"
                             />
@@ -144,11 +155,17 @@ export default {
                         <div class="level-left" />
 
                         <div class="level-right">
-                            <b-button class="level-item" type="is-success" outlined @click="okHandler">
-                                <b-icon icon="check" custom-size="default" /> 確定
+                            <b-button
+                                class="level-item"
+                                type="is-success"
+                                outlined
+                                @click="okHandler"
+                            >
+                                <b-icon icon="check" custom-size="default" />確定
                             </b-button>
                             <b-button class="level-item" type="is-danger" outlined>
-                                <b-icon icon="window-close" custom-size="default" /> 放棄</b-button>
+                                <b-icon icon="window-close" custom-size="default" />放棄
+                            </b-button>
                         </div>
                     </div>
                 </div>
@@ -192,13 +209,13 @@ export default {
                     <b-table-column field="question" label="題目" sortable>{{ props.row.question }}</b-table-column>
                     <b-table-column label="操作" width="15rem">
                         <div class="level">
-                        <b-button class="level-item" type="is-primary" outlined>
-                            <b-icon icon="square-edit-outline" custom-size="default" /> 修改
-                        </b-button>
-                        <b-button class="level-item" type="is-danger" outlined>
-                            <b-icon icon="delete-empty" custom-size="default" /> 刪除
-                        </b-button>
-                    </div>
+                            <b-button class="level-item" type="is-primary" outlined>
+                                <b-icon icon="square-edit-outline" custom-size="default" />修改
+                            </b-button>
+                            <b-button class="level-item" type="is-danger" outlined>
+                                <b-icon icon="delete-empty" custom-size="default" />刪除
+                            </b-button>
+                        </div>
                     </b-table-column>
                 </template>
 
