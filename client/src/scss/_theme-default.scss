@@ -1,5 +1,10 @@
-/* We'll need some initial vars to use here */
-@import "~bulma/sass/utilities/initial-variables";
+/**
+ * /* We'll need some initial vars to use here
+ *
+ * @format
+ */
+
+@import '~bulma/sass/utilities/initial-variables';
 
 /* Base: Size  */
 $size-base: 1rem;
@@ -14,7 +19,8 @@ $base-gradient: linear-gradient(to right, $base-color, #1e344c);
 $primary: #203752;
 
 /* Default font */
-$family-sans-serif: "IBM Plex Sans", "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+$family-sans-serif: 'IBM Plex Sans', 'Helvetica', 'Arial', 'LiHei Pro',
+    '黑體-繁', '微軟正黑體', sans-serif;
 
 /* Body */
 $body-background-color: $base-color-light;
@@ -26,13 +32,13 @@ $navbar-dropdown-radius: $radius-small;
 $navbar-avatar-size: 1.75rem;
 
 /* Icon: specifics */
-$icon-update-mark-size: $size-base * .5;
+$icon-update-mark-size: $size-base * 0.5;
 $icon-update-mark-color: $yellow;
 
 /* Aside: Bulma override */
 $menu-item-radius: 0;
 $menu-list-link-padding: $size-base 0;
-$menu-item-color: rgba($white, .3);
+$menu-item-color: rgba($white, 0.3);
 $menu-item-hover-color: $white;
 $menu-item-hover-background-color: darken($base-color, 3.5%);
 $menu-item-active-color: $white;
@@ -43,7 +49,7 @@ $aside-width: $size-base * 12;
 $aside-logo-width: $size-base * 3;
 $aside-mobile-width: $size-base * 15;
 $aside-icon-width: $size-base * 3;
-$aside-submenu-font-size: $size-base * .95;
+$aside-submenu-font-size: $size-base * 0.95;
 $aside-box-shadow: none;
 $aside-background-color: $base-color;
 
@@ -70,11 +76,11 @@ $modal-card-width-mobile: 90vw;
 
 /* Notification: Bulma override */
 $notification-radius: $radius-small;
-$notification-padding: $default-padding * .75 $default-padding;
+$notification-padding: $default-padding * 0.75 $default-padding;
 
 /* Footer: Bulma override */
 $footer-background-color: $white;
-$footer-padding: $default-padding * .33 $default-padding;
+$footer-padding: $default-padding * 0.33 $default-padding;
 
 /* Footer: specifics */
 $footer-logo-height: $size-base * 2;

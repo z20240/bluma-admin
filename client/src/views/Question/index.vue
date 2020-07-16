@@ -8,11 +8,11 @@ import data from "./questions.json";
 const CONST = {
     EDIT_TYPES: {
         CREATE: "create",
-        EDIT: "edit",
+        EDIT: "edit"
     },
     EDIT_TYPES_MSG: {
-        create: '新增',
-        edit: '編輯'
+        create: "新增",
+        edit: "編輯"
     }
 };
 
@@ -34,17 +34,32 @@ export default {
             perPage: 20,
             pagelist: [10, 20, 50, 90],
 
-            collapseIsOpen: true,
-
+            collaspeIsOpen: true,
             editType: CONST.EDIT_TYPES.CREATE,
 
             dataForm: {
-                "id": 0,
-                "question": "",
-                "answers": [],
-                "correct": 0
+                id: 0,
+                question: "",
+                answer: [{ id: 1, option: "" }],
+                correct: 1
             }
         };
+    },
+    methods: {
+        focusOn(refName, idx = null) {
+            if (idx >= 0) this.$refs[refName][idx].focus();
+        },
+        newAnswerField() {
+            const answerObj = {
+                id: this.dataForm.answer.length + 1,
+                option: ""
+            };
+
+            this.dataForm = {
+                ...this.dataForm,
+                answer: [...this.dataForm.answer, answerObj]
+            };
+        }
     }
 };
 </script>
@@ -53,22 +68,59 @@ export default {
     <section class="section">
         <title-bar>題庫</title-bar>
 
-        <b-collapse aria-id="question-form-collaspe" animation="slide" :open.sync="collapseIsOpen">
-            <div slot="trigger" class="panel-heading" role="button" aria-controls="question-form-collaspe">
-                <strong>{{ CONST.EDIT_TYPES_MSG[editType] }}題庫</strong>
+        <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
+            <div
+                slot="trigger"
+                slot-scope="props"
+                class="card-header"
+                role="button"
+                aria-controls="contentIdForA11y3"
+            >
+                <p class="card-header-title">{{ CONST.EDIT_TYPES_MSG[ editType ] }}題庫</p>
+                <a class="card-header-icon">
+                    <b-icon :icon="props.open ? 'menu-down' : 'menu-up'" />
+                </a>
             </div>
-
-            <div class="panel-block">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br />Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus.
-                <br />Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
+            <div class="card-content">
+                <div class="content">
+                    <b-field label="題目" style="width: 100%;">
+                        <b-input
+                            ref="questionInput"
+                            type="text"
+                            v-model="dataForm.question"
+                            @keyup.enter.native="focusOn('answerInput', 0)"
+                        />
+                    </b-field>
+                    <div style="width: 100%;">
+                        <label class="label">選項</label>
+                        <div v-for="(answer, indx) in dataForm.answer" :key="indx" class="columns">
+                            <b-radio
+                                class="column is-1"
+                                v-model="dataForm.correct"
+                                name="name"
+                                :native-value="answer.id"
+                            >{{answer.id}}.</b-radio>
+                            <b-input
+                                :ref="`answerInput`"
+                                class="column"
+                                type="text"
+                                v-model="answer.question"
+                                @keyup.enter.native="newAnswerField('answerInput', 0)"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </b-collapse>
 
         <card-component title="題庫列表" icon="table">
             <b-field grouped group-multiline>
                 <b-select v-model="perPage" :disabled="!isPaginated">
-                    <option v-for="pl in pagelist" :key="pl" :value="pl">{{pl}}筆 / 頁</option>
+                    <option
+                        v-for="page_number in pagelist"
+                        :key="page_number"
+                        :value="page_number"
+                    >{{page_number}}筆 / 頁</option>
                 </b-select>
             </b-field>
 
