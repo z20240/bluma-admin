@@ -2,18 +2,20 @@
 
 var express = require('express');
 var router = express.Router();
+var jwt = require('express-jwt');
 var promisify = require('util').promisify;
-
-const { Base64 } = require('js-base64');
-const jwt = require('jsonwebtoken');
 
 const Response = require('../../response');
 
-const {Database} = require('../../database/mongodb');
+const {Database, GetSequenceNextValue} = require('../../database/mongodb');
+
 
 router.get('/', async function (req, res) {
-    // console.log('req.app.locals.db', req.app.locals.db);
-    const db_cursor = req.app.locals.db.collection(Database.tables.User).find({});
+
+    // jwt 會做 auth, 並且將資料寫入 req.user
+    console.log('req.user', req.user);
+
+    const db_cursor = req.app.locals.db.collection(Database.tables.Question).find({});
     const db_toArrayAsync = promisify(db_cursor.toArray).bind(db_cursor);
     let result;
 
@@ -28,33 +30,19 @@ router.get('/', async function (req, res) {
 });
 
 
-router.post('/login', async function (req, res) {
-    console.log('req.user', req.user);
+router.post('/', async function (req, res) {
 
-    if (!req.headers.authorization) return res.json(Response.failed('Invalid User.'));
+    const payload = req.body;
+    try {
+        await req.app.locals.db.collection(Database.tables.Question).insert({
+            ...payload,
+            id: GetSequenceNextValue(req.app.locals.db.collection(Database.tables.Question))
+        });
+    } catch (err) {
+        console.error('err', err);
+    }
 
-    const token = req.headers.authorization.split(' ')[1];
-
-    const [username, password] = Base64.decode(token).split(':');
-    console.log('username, password', username, password);
-
-    const user = await req.app.locals.db.collection(Database.tables.User).findOne({
-        username: { $eq: username },
-        password: { $eq: password }
-    });
-    console.log('user', user);
-
-    if (!user) return res.json(Response.failed('Invalid User.'));
-
-    // console.log('JWT_SECRET', process.env.JWT_SECRET);
-
-    const jwtToken = jwt.sign(
-        { data: JSON.stringify({ username }) },
-        process.env.JWT_SECRET,
-        { expiresIn: 8 * 3600 }
-    );
-
-    res.json(Response.success({ Token: jwtToken }));
+    res.json(Response.success());
 });
 
 
@@ -70,7 +58,7 @@ router.post('/info', async function (req, res) {
 
         const username = payload.username;
 
-        const user = await req.app.locals.db.collection(Database.tables.User).findOne({
+        const user = await req.app.locals.db.collection('user').findOne({
             username: { $eq: username }
         });
 

@@ -1,5 +1,5 @@
-import { loginByUsername } from '@/api';
-import {setToken, removeToken} from '@/utils/auth';
+import { apiLoginByUsername } from '@/api';
+import {setToken, getToken, removeToken} from '@/utils/auth';
 
 const state = {
     /* User */
@@ -33,7 +33,9 @@ const mutations = {
         state.userEmail = payload.email;
         state.userAvatar = payload.avatar;
     },
-
+    SET_TOKEN(state, token) {
+        state.token = token;
+    },
     /* Aside Mobile */
     asideMobileStateToggle(state, payload = null) {
         const htmlClassName = 'has-aside-mobile-expanded';
@@ -71,11 +73,12 @@ const actions = {
             };
 
             const user = { ...payload, ...details };
-            const {data} = await loginByUsername(payload.name, payload.password);
-            console.log('data', data);
+            const {data} = await apiLoginByUsername(payload.name, payload.password);
+            console.log("data", data);
 
             setToken(data.Token);
             commit('LOGIN', user);
+            commit('SET_TOKEN', data.Token);
 
             return user;
         } catch (err) {
@@ -114,6 +117,7 @@ const actions = {
     },
     userInfo({commit}, payload) {
         commit('LOGIN', payload);
+        commit('SET_TOKEN', getToken());
 
         return payload;
     }

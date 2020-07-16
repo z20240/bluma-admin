@@ -12,14 +12,13 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
     config => {
-        console.log('config', config);
-        // Do something before request is sent
         config.headers['Network-Client-IP'] = getIP();
 
-        if (store.getters.token) {
-            // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-            // config.headers['X-Token'] = getToken()
-            config.headers['Authorization'] = 'Bearer ' + getToken();
+        const token = store.getters.token || getToken();
+
+        if (token) {
+            // 讓每個請求都帶 Bearer token, 使用 express-jwt 驗證資料
+            config.headers['Authorization'] = 'Bearer ' + token;
         }
         return config;
     },

@@ -225,3 +225,367 @@ NotFoundError: Not Found
     at Function.handle (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
     at router (/Users/les/Desktop/nccu-project/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
 
+[2020-07-16T07:01:39.114Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:01:44.614Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:01:58.888Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:02:03.159Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:03:31.450Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:04:17.756Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:04:17.839Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:07:57.248Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:34:40.840Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T07:36:24.442Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:13:34.855Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:14:35.471Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:52:24.454Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:55:22.764Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:55:27.385Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:55:32.211Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T09:55:36.478Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T10:06:17.389Z] Not Found
+NotFoundError: Not Found
+    at /mnt/d/bluma-admin/server/app.js:63:10
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:635:15
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+
+[2020-07-16T10:16:44.679Z] Format is Authorization: Bearer [token]
+UnauthorizedError: Format is Authorization: Bearer [token]
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:64:25)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:21:07.720Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:24:42.972Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:25:02.892Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:25:56.250Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:28:43.865Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:30:05.033Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:31:22.888Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:32:22.530Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+
+[2020-07-16T10:33:05.456Z] No authorization token was found
+UnauthorizedError: No authorization token was found
+    at middleware (/mnt/d/bluma-admin/server/node_modules/express-jwt/lib/index.js:76:21)
+    at /mnt/d/bluma-admin/server/node_modules/express-unless/index.js:47:5
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:317:13)
+    at /mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:174:3)
+    at router (/mnt/d/bluma-admin/server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/mnt/d/bluma-admin/server/node_modules/express/lib/router/layer.js:95:5)
+

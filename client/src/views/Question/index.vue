@@ -1,9 +1,8 @@
 
 <script language="javascript">
+import { mapGetters, mapActions } from 'vuex';
 import CardComponent from "@/components/CardComponent";
 import TitleBar from "@/components/TitleBar";
-
-import data from "./questions.json";
 
 const CONST = {
     EDIT_TYPES: {
@@ -22,10 +21,8 @@ export default {
     data() {
         return {
             CONST,
-            data,
             isPaginated: true,
             isPaginationSimple: true,
-            isLoading: false,
             showDetailIcon: true,
             paginationPosition: "bottom",
             defaultSortDirection: "asc",
@@ -35,7 +32,6 @@ export default {
             pagelist: [10, 20, 50, 90],
 
             collaspeIsOpen: true,
-            editType: CONST.EDIT_TYPES.CREATE,
 
             dataForm: {
                 id: 0,
@@ -45,13 +41,34 @@ export default {
             }
         };
     },
+    computed: {
+        ...mapGetters('question', [
+            'questions',
+            'isloading'
+        ]),
+        editType() {
+            return !this.dataForm.id ? CONST.EDIT_TYPES.CREATE : CONST.EDIT_TYPES.EDIT;
+        }
+
+    },
+    mounted() {
+        this.getQuestions();
+    },
     methods: {
+        ...mapActions('question', [
+            'createQuestion',
+            'getQuestions',
+            'updateQuestion',
+            'deleteQuestion',
+        ]),
         focusOn(refName, idx = null) {
             if (idx >= 0) this.$refs[refName][idx].focus();
         },
-        newAnswerField() {
+        newAnswerField(refName) {
+            const lastIdx = this.dataForm.answer.length;
+
             const answerObj = {
-                id: this.dataForm.answer.length + 1,
+                id: lastIdx + 1,
                 option: ""
             };
 
@@ -59,6 +76,17 @@ export default {
                 ...this.dataForm,
                 answer: [...this.dataForm.answer, answerObj]
             };
+
+            this.$nextTick(() => this.focusOn(refName, lastIdx));
+        },
+        okHandler() {
+
+            const actionMap = {
+                [this.CONST.EDIT_TYPES.CREATE]: this.createQuestion,
+                [this.CONST.EDIT_TYPES.EDIT]: this.updateQuestion
+            };
+
+            actionMap[this.editType](this.dataForm);
         }
     }
 };
@@ -83,11 +111,12 @@ export default {
             </div>
             <div class="card-content">
                 <div class="content">
-                    <b-field label="題目" style="width: 100%;">
+                    <b-field label="題目">
                         <b-input
                             ref="questionInput"
                             type="text"
                             v-model="dataForm.question"
+                            placeholder="範例題目..."
                             @keyup.enter.native="focusOn('answerInput', 0)"
                         />
                     </b-field>
@@ -105,8 +134,21 @@ export default {
                                 class="column"
                                 type="text"
                                 v-model="answer.question"
-                                @keyup.enter.native="newAnswerField('answerInput', 0)"
+                                placeholder="範例選項..."
+                                @keyup.enter.native="newAnswerField('answerInput')"
                             />
+                        </div>
+                    </div>
+
+                    <div class="level">
+                        <div class="level-left" />
+
+                        <div class="level-right">
+                            <b-button class="level-item" type="is-success" outlined @click="okHandler">
+                                <b-icon icon="check" custom-size="default" /> 確定
+                            </b-button>
+                            <b-button class="level-item" type="is-danger" outlined>
+                                <b-icon icon="window-close" custom-size="default" /> 放棄</b-button>
                         </div>
                     </div>
                 </div>
@@ -125,7 +167,7 @@ export default {
             </b-field>
 
             <b-table
-                :data="data"
+                :data="questions"
                 :paginated="isPaginated"
                 :per-page="perPage"
                 :current-page.sync="currentPage"
@@ -135,7 +177,7 @@ export default {
                 :show-detail-icon="showDetailIcon"
                 :sort-icon="`chevron-up`"
                 :sort-icon-size="`is-small`"
-                :loading="isLoading"
+                :loading="isloading"
                 detailed
                 striped
                 hoverable
@@ -148,7 +190,16 @@ export default {
                 <template slot-scope="props">
                     <b-table-column field="id" label="ID" width="40" sortable>{{ props.row.id }}</b-table-column>
                     <b-table-column field="question" label="題目" sortable>{{ props.row.question }}</b-table-column>
-                    <b-table-column label="操作">這是操作欄</b-table-column>
+                    <b-table-column label="操作" width="15rem">
+                        <div class="level">
+                        <b-button class="level-item" type="is-primary" outlined>
+                            <b-icon icon="square-edit-outline" custom-size="default" /> 修改
+                        </b-button>
+                        <b-button class="level-item" type="is-danger" outlined>
+                            <b-icon icon="delete-empty" custom-size="default" /> 刪除
+                        </b-button>
+                    </div>
+                    </b-table-column>
                 </template>
 
                 <template slot="empty">
@@ -157,7 +208,7 @@ export default {
                             <p>
                                 <b-icon icon="emoticon-sad" size="is-large"></b-icon>
                             </p>
-                            <p>Nothing here.</p>
+                            <p>Nothing data here.</p>
                         </div>
                     </section>
                 </template>
@@ -184,7 +235,3 @@ export default {
         </card-component>
     </section>
 </template>
-
-
-<style>
-</style>

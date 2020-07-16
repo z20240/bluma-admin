@@ -4,7 +4,7 @@ import store from '@/store';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 import { SnackbarProgrammatic } from 'buefy';
-import { getUserInfo } from '@/api';
+import { apiGetUserInfo } from '@/api';
 import { getToken } from '@/utils/auth';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
@@ -17,6 +17,7 @@ router.beforeEach(async (to, from, next) => {
     NProgress.start();
 
     const token = getToken();
+    console.log("token", token);
 
     if (Utils.isEmpty(token)) {
         // 要到的頁面 (to)，它的 meta 如果有 requiresAuth 的話，就"不會"直接放行
@@ -27,7 +28,7 @@ router.beforeEach(async (to, from, next) => {
         else {
             if (Utils.isEmpty(store.getters.userInfo)) {
                 try {
-                    const { data } = await getUserInfo(token);
+                    const { data } = await apiGetUserInfo(token);
                     console.log('~~~~> isEmpty', data);
                     store.dispatch('app/userInfo', data.Item);
                 } catch (err) {
