@@ -52,33 +52,40 @@ router.post('/', async function (req, res) {
     }
 });
 
-router.post('/info', async function (req, res) {
-    const content = req.body;
-    console.log('content', content);
-    if (!content.token) return res.json(Response.failed('No token'));
+router.put('/', async function (req, res) {
+    const payload = req.body;
+    console.log('payload', payload);
+
+    delete payload._id;
 
     try {
-        const str_payload = await jwt.verify(
-            content.token,
-            process.env.JWT_SECRET
+        const dbQuestion = req.app.locals.db.collection(
+            Database.tables.Question
         );
 
-        const payload = JSON.parse(str_payload.data);
+        await dbQuestion.updateOne(
+            { id: { $eq: payload.id } },
+            { $set: payload },
+        );
 
-        const username = payload.username;
+        res.json(Response.success());
+    } catch (err) {
+        console.error('err', err);
+        res.json(Response.failed(err.message));
+    }
+});
 
-        const user = await req.app.locals.db.collection('user').findOne({
-            username: { $eq: username },
-        });
+router.delete('/', async function (req, res) {
+    const payload = req.body;
+    console.log('payload', payload);
 
-        const userInfo = {
-            name: user.username,
-            email: user.email,
-            avatar: user.avatar,
-            status: user.status,
-        };
+    try {
 
-        res.json(Response.success({ Item: userInfo }));
+        const result = await req.app.locals.db.collection(Database.tables.Question).deleteOne({ id: { $eq: payload.id } });
+
+        console.log('result', result);
+
+        res.json(Response.success());
     } catch (err) {
         console.error('err', err);
         res.json(Response.failed(err.message));

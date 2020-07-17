@@ -63,29 +63,44 @@ export default {
         reset() {
             this.$data.dataForm = this.$options.data().dataForm;
         },
-        focusOn(refName, idx = null) {
-            if (idx >= 0) this.$refs[refName][idx].focus();
-        },
-        newAnswerField(refName) {
-            const lastIdx = this.dataForm.answers.length;
+        newOption(dataForm) {
+            const lastIdx = dataForm.answers.length;
 
             const answerObj = {
                 id: lastIdx + 1,
                 option: ""
             };
 
-            this.dataForm = {
-                ...this.dataForm,
-                answers: [...this.dataForm.answers, answerObj]
+            return {
+                ...dataForm,
+                answers: [...dataForm.answers, answerObj]
             };
+        },
+        focusOn(refName, idx = null) {
+            if (idx >= 0) this.$refs[refName][idx].focus();
+        },
+        focusToOption() {
+            if (!this.dataForm.answers.length) this.dataForm = this.newOption(this.dataForm);
+
+            this.$nextTick(() => this.focusOn('answerInput', 0));
+        },
+        newAnswerField(refName) {
+            const lastIdx = this.dataForm.answers.length;
+
+            this.dataForm = this.newOption(this.dataForm);
 
             this.$nextTick(() => this.focusOn(refName, lastIdx));
         },
-        okHandler() {
+        cancel() {
+            this.reset();
+        },
+        modifyHandler() {
             const filterOutEmptyOption = dataform => ({
                 ...dataform,
                 answers: dataform.answers.filter(opt => opt.option)
             });
+
+            const isOptionEmpty = opt => !opt.option;
 
             const actionMap = {
                 [this.CONST.EDIT_TYPES.CREATE]: this.createQuestion,
@@ -93,11 +108,26 @@ export default {
             };
 
             // TODO: validations
+            if (this.dataForm.answers.every(isOptionEmpty)) return this.$buefy.toast.open({
+                message: `Error: 需要至少一項選項`,
+                type: 'is-danger'
+            });
 
             this.dataForm = filterOutEmptyOption(this.dataForm);
+
             actionMap[this.editType](this.dataForm);
 
             this.reset();
+        },
+        loadUpdateForm(row) {
+            this.dataForm = JSON.parse(JSON.stringify(row));
+        },
+        deleteHandler(row) {
+
+            this.$buefy.dialog.confirm({
+                message: '確定刪除此筆資料嗎?',
+                onConfirm: () => this.deleteQuestion(row)
+            });
         }
     }
 };
@@ -128,10 +158,12 @@ export default {
                             type="text"
                             v-model="dataForm.question"
                             placeholder="範例題目..."
-                            @keyup.enter.native="focusOn('answerInput', 0)"
+                            validation-message="題目不得為空"
+                            @keyup.enter.native="focusToOption"
+                            required
                         />
                     </b-field>
-                    <div style="width: 100%;">
+                    <div>
                         <label class="label">選項</label>
                         <div v-for="(answer, indx) in dataForm.answers" :key="indx" class="columns">
                             <b-radio
@@ -159,11 +191,11 @@ export default {
                                 class="level-item"
                                 type="is-success"
                                 outlined
-                                @click="okHandler"
+                                @click="modifyHandler"
                             >
                                 <b-icon icon="check" custom-size="default" />確定
                             </b-button>
-                            <b-button class="level-item" type="is-danger" outlined>
+                            <b-button class="level-item" type="is-danger" outlined @click="cancel">
                                 <b-icon icon="window-close" custom-size="default" />放棄
                             </b-button>
                         </div>
@@ -209,10 +241,10 @@ export default {
                     <b-table-column field="question" label="題目" sortable>{{ props.row.question }}</b-table-column>
                     <b-table-column label="操作" width="15rem">
                         <div class="level">
-                            <b-button class="level-item" type="is-primary" outlined>
+                            <b-button class="level-item" type="is-primary" outlined @click="loadUpdateForm(props.row)">
                                 <b-icon icon="square-edit-outline" custom-size="default" />修改
                             </b-button>
-                            <b-button class="level-item" type="is-danger" outlined>
+                            <b-button class="level-item" type="is-danger" outlined @click="deleteHandler(props.row)">
                                 <b-icon icon="delete-empty" custom-size="default" />刪除
                             </b-button>
                         </div>
@@ -252,3 +284,9 @@ export default {
         </card-component>
     </section>
 </template>
+
+<style lang="scss" scoped>
+    .columns:last-child {
+        margin-bottom: 0.75rem;
+    }
+</style>

@@ -4,11 +4,6 @@
             <a class="navbar-item is-hidden-desktop" @click.prevent="menuToggleMobile">
                 <b-icon :icon="menuToggleMobileIcon" />
             </a>
-            <!-- <div class="navbar-item has-control">
-                <div class="control">
-                    <input class="input" placeholder="Search everywhere..." />
-                </div>
-            </div> -->
         </div>
         <div class="navbar-brand is-right">
             <div class="navbar-item navbar-item-menu-toggle is-hidden-desktop">
@@ -92,3 +87,11 @@ export default {
     }
 };
 </script>
+
+
+<style lang="scss" scoped>
+    nav {
+        border-bottom: 1px solid smokewhite;
+        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+    }
+</style>
