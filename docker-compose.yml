@@ -1,0 +1,23 @@
+### docker-compose.yml
+version: "3.6"
+
+services:
+  server:
+    image: nccu-server
+    container_name: nccu-server
+    build:
+      context: .
+      dockerfile: ./Dockerfile-server
+      args:
+        - NODE_ENV=production
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./log/server:/server/log
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

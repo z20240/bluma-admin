@@ -1,0 +1,26 @@
+## 使用 PM2 的 Docker Image 做為 based image
+FROM keymetrics/pm2:latest-alpine
+
+WORKDIR /nccu-workspace
+
+## 複製本地資料夾至 Docker Image 中
+COPY server/bin bin
+COPY server/database database
+COPY server/log log
+COPY server/model model
+COPY server/public public
+COPY server/response response
+COPY server/routes routes
+COPY server/views views
+
+COPY server/.env .env
+COPY server/app.js app.js
+COPY server/package.json package.json
+COPY server/pm2.json pm2.json
+
+## 執行 npm install
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN npm install --production
+
+## 利用 PM2-runtime 來啟動 Nextjs service，並直接使用 env_production 中的設定
+CMD [ "pm2-runtime", "start", "pm2.json", "--env", "production" ]
