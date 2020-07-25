@@ -1,10 +1,10 @@
 <template>
     <CardComponent class="abslote-center" title="Login">
         <b-field label="Name">
-            <b-input v-model="dataFrom.name"></b-input>
+            <b-input v-model="dataFrom.name" />
         </b-field>
         <b-field label="Password">
-            <b-input type="password" v-model="dataFrom.password"></b-input>
+            <b-input type="password" v-model="dataFrom.password" @keypress.enter.native="handleLogin" />
         </b-field>
         <div align="center">
             <b-button type="is-primary" @click="handleLogin">Login</b-button>
