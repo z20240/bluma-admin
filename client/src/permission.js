@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
         if (to.meta.requiresAuth) next('/login');
         else next();
     } else {
-        if (to.path === '/login') next('/');
+        if (to.path === '/login') next('/admin');
         else {
             if (Utils.isEmpty(store.getters.userInfo)) {
                 try {

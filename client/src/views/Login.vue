@@ -62,7 +62,7 @@ export default {
                     return;
                 }
 
-                this.$router.push({ path: this.redirect || '/' });
+                this.$router.push({ path: this.redirect || '/admin' });
             } catch (e) {
                 console.log('handleLogin -> e', e);
             }

@@ -1,7 +1,7 @@
 /** @format */
 var promisify = require('util').promisify;
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+const url = `mongodb://${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}`;
 
 const CreateDB = async function (db_name, app = null) {
     // Create a MongoDB connection pool and start the application
@@ -31,7 +31,7 @@ const CreateDB = async function (db_name, app = null) {
 };
 
 const GetSequenceNextValue = async (tableName) => {
-    const db = await CreateDB(process.env.MONGO_DB);
+    const db = await CreateDB(process.env.DATABASE_DB);
     const db_collection = db.collection('autoIncrease');
 
     const dbFindOneAndUpdateAsync = promisify(
@@ -50,7 +50,7 @@ const GetSequenceNextValue = async (tableName) => {
 };
 
 module.exports.Database = {
-    name: process.env.MONGO_DB,
+    name: process.env.DATABASE_DB,
     tables: {
         User: 'user',
         Question: 'question',

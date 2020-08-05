@@ -18,7 +18,7 @@ var indexRouter = require('./routes/api');
 
 var app = express();
 
-CreateDB(process.env.MONGO_DB, app);
+CreateDB(process.env.DATABASE_DB, app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

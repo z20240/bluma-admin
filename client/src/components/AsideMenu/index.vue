@@ -6,15 +6,15 @@
             </a>
         </div>
         <div class="menu is-menu-main">
-            <aside-menu-list @menu-click="menuClick" :menu="menu" />
+            <aside-menu-list @menu-click="menuClick" :menu="asideMenu" />
         </div>
     </aside>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import asideMenu from '@/router/asideMenu';
 import AsideMenuList from '@/components/AsideMenu/AsideMenuList';
-import menu from './menu';
 
 export default {
     name: 'AsideMenu',
@@ -23,7 +23,7 @@ export default {
         ...mapGetters('app', [
             'isAsideVisible'
         ]),
-        menu
+        asideMenu
     },
     methods: {
         menuClick(item) {

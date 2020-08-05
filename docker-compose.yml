@@ -2,22 +2,39 @@
 version: "3.6"
 
 services:
-  server:
-    image: nccu-server
-    container_name: nccu-server
-    build:
-      context: .
-      dockerfile: ./Dockerfile-server
-      args:
-        - NODE_ENV=production
-    ports:
-      - "5555:5555"
+  db:
+    image: mongo
+    container_name: nccu-db
+    environment:
+      restart: always
     volumes:
-      - ./log/server:/server/log
-    restart: always
+      - docker-volumes:/db/data
     networks:
       - backend
+
+  # server:
+  #   image: nccu-server
+  #   container_name: nccu-server
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile-server
+  #     args:
+  #       - NODE_ENV=production
+  #   ports:
+  #     - "8888:8888"
+  #   volumes:
+  #     - ./log/server:/server/log
+  #   restart: always
+  #   links:
+  #     - db
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - backend
 
 networks:
   backend:
     driver: bridge
+
+volumes:
+  docker-volumes:

@@ -12,6 +12,13 @@ const routes = [
     },
     {
         path: '/',
+        component: () => import('@/views/Questionnaire'),
+        meta: {
+            title: '中正大學犯罪防治中心',
+        }
+    },
+    {
+        path: '/admin',
         component: Layout,
         meta: {
             requiresAuth: true
@@ -76,7 +83,6 @@ const routes = [
             },
         ]
     }
-
 ];
 
 const router = new VueRouter({
