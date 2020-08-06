@@ -30,9 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const corsOptions = {
-    // origin: ['http://www.example.com', 'http://localhost:8080'],
-    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    // allowedHeaders: ['Content-Type', 'Authorization'],
+    // origin: ["http://www.example.com", "http://localhost:8080"],
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    // allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));

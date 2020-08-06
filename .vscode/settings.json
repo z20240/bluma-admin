@@ -1,0 +1,8 @@
+{
+    "files.eol": "\n",
+    "code-eol.returnCharacter": "¤",
+    "code-eol.highlightNonDefault": true,
+    "code-eol.highlightExtraWhitespace": true,
+    "eslint.format.enable": true,
+    "vetur.format.defaultFormatter.js": "prettier-eslint"
+}
