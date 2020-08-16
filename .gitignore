@@ -1,6 +1,8 @@
 mongodb-macos-*
 data
 server/node_modules
-client/node_modules
 server/.env
+server/log/
+
 client/.env
+client/node_modules
