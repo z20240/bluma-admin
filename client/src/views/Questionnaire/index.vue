@@ -9,7 +9,7 @@
 <script>
 import { onMounted } from '@vue/composition-api';
 import Header from './Header';
-import MainContent from './MainContent';
+import MainContent from './MainContent/index';
 import Footer from './Footer';
 // import LogoImg from '@/assets/images/logo.png';
 
