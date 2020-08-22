@@ -2,7 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var jwt = require('express-jwt');
 var promisify = require('util').promisify;
 
 const Response = require('../../response');
@@ -13,9 +12,7 @@ router.get('/', async function (req, res) {
     // jwt 會做 auth, 並且將資料寫入 req.user
     console.log('req.user', req.user);
 
-    const db_cursor = req.app.locals.db
-        .collection(Database.tables.Question)
-        .find({});
+    const db_cursor = req.app.locals.db.collection(Database.tables.Question).find({});
     const db_toArrayAsync = promisify(db_cursor.toArray).bind(db_cursor);
     let result;
 
@@ -36,9 +33,7 @@ router.post('/', async function (req, res) {
 
     try {
         const id = (await GetSequenceNextValue(Database.tables.Question)) + 1;
-        const dbQuestion = req.app.locals.db.collection(
-            Database.tables.Question
-        );
+        const dbQuestion = req.app.locals.db.collection(Database.tables.Question);
 
         await dbQuestion.insertOne({
             ...payload,
@@ -59,14 +54,9 @@ router.put('/', async function (req, res) {
     delete payload._id;
 
     try {
-        const dbQuestion = req.app.locals.db.collection(
-            Database.tables.Question
-        );
+        const dbQuestion = req.app.locals.db.collection(Database.tables.Question);
 
-        await dbQuestion.updateOne(
-            { id: { $eq: payload.id } },
-            { $set: payload },
-        );
+        await dbQuestion.updateOne({ id: { $eq: payload.id } }, { $set: payload });
 
         res.json(Response.success());
     } catch (err) {
@@ -80,8 +70,9 @@ router.delete('/', async function (req, res) {
     console.log('payload', payload);
 
     try {
-
-        const result = await req.app.locals.db.collection(Database.tables.Question).deleteOne({ id: { $eq: payload.id } });
+        const result = await req.app.locals.db
+            .collection(Database.tables.Question)
+            .deleteOne({ id: { $eq: payload.id } });
 
         console.log('result', result);
 
