@@ -36,7 +36,7 @@ export default {
                 right: -3.25rem;
                 top: 0;
                 z-index: -1;
-                content: " ";
+                content: ' ';
                 height: 100%;
                 width: 0px;
                 border-color: transparent orange white transparent;

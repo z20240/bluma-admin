@@ -25,6 +25,7 @@ footer {
     .content {
         p {
             margin: 0;
+            font-size: 0.75rem;
         }
         .footer-hr {
             margin: 0;
