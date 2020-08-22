@@ -1,9 +1,9 @@
 <template>
-    <div class="main">
-        <Header />
-        <MainContent />
-        <Footer />
-    </div>
+  <div class="main">
+    <Header />
+    <MainContent />
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -38,5 +38,10 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
 }
 </style>

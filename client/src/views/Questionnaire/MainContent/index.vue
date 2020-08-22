@@ -1,12 +1,49 @@
 <template>
-    <section class="main-content hero is-fullheight-with-navbar">
-        <div v-if="device.device.type === 'smartphone'"></div>
-        <img class="logo" src="@/assets/images/mobile-COMPS/index/MOBILE-index-logo.png" alt="logo" />
-        <img class="doctor" src="@/assets/images/mobile-COMPS/index/MOBILE-index-doctor.png" alt="doctor" />
-        <a class="gotest">
-            <img src="@/assets/images/mobile-COMPS/index/MOBILE-index-gotest-button.png" alt="doctor" />
+  <section class="main-content hero is-fullheight-with-navbar">
+    <div class="pc" v-if="device.device.type === 'desktop'">
+      <div class="left">
+        <div class="doctor">
+          <img src="@/assets/images/PC-com-kv-doctor.png" alt="doctor" />
+        </div>
+        <div class="right">
+          <div class="logo">
+            <img src="@/assets/images/PC-com_index_logo.png" alt="logo" />
+          </div>
+          <div class="goTest">
+            <a src>
+              <img src="@/assets/images/PC-com-go-button.png" alt="logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile" v-if="device.device.type === 'smartphone'">
+      <div class="logo">
+        <img
+          v-if="device.device.type === 'smartphone'"
+          src="@/assets/images/MOBILE-index-logo.png"
+          alt="logo"
+        />
+      </div>
+      <div class="doctor">
+        <img
+          v-if="device.device.type === 'smartphone'"
+          src="@/assets/images/MOBILE-index-doctor.png"
+          alt="doctor"
+        />
+      </div>
+
+      <div class="goTest">
+        <a src>
+          <img
+            v-if="device.device.type === 'smartphone'"
+            src="@/assets/images/MOBILE-com-go-button.png"
+            alt="logo"
+          />
         </a>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -29,35 +66,67 @@ export default {
 
 <style lang="scss" scoped>
 .main-content {
-    position: relative;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  height: 100vh;
+  overflow: auto;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("~@/assets/images/PC-com-index-bg.png");
+  padding-left: calc(50% - 430px);
+  padding-right: calc(50% - 430px);
+
+  .left {
     display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    max-height: calc(100vh - 3.25rem);
-    overflow: auto;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-
-    background-image: url('~@/assets/images/PC-COMPS/index/PC-com-index-bg.png');
-
-    @media screen and (max-width: 450px) {
-        flex-direction: column;
-
-        background-image: url('~@/assets/images/mobile-COMPS/index/MOBILE-index-bg.png');
-
-        .logo {
-            height: 20vh;
-        }
-
-        .doctor {
-            height: 70vh;
-        }
-
-        .gotest {
-            position: absolute;
-            bottom: 15%;
-        }
+  .doctor {
+    img {
+      height: 100%;
     }
+  }
+
+  .right {
+    max-width: 500px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .goTest {
+    width: 60%;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    background-image: url("~@/assets/images/MOBILE-index-bg.png");
+
+    .logo {
+    }
+
+    .doctor {
+    }
+
+    .goTest {
+      display: block;
+      position: absolute;
+      bottom: 15%;
+    }
+  }
 }
 </style>
