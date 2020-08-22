@@ -1,6 +1,6 @@
 <template>
     <section class="main-content hero is-fullheight-with-navbar">
-        <div v-if="device.value.device.type === 'smartphone'"></div>
+        <div v-if="device.device.type === 'smartphone'"></div>
         <img class="logo" src="@/assets/images/mobile-COMPS/index/MOBILE-index-logo.png" alt="logo" />
         <img class="doctor" src="@/assets/images/mobile-COMPS/index/MOBILE-index-doctor.png" alt="doctor" />
         <a class="gotest">
