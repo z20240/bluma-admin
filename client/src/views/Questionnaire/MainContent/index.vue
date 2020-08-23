@@ -94,7 +94,7 @@ export default {
       flex-flow: row nowrap;
       position: relative;
       width: 100%;
-      height: calc(100% - 100px);
+      height: 100%;
     }
 
     .doctor {
