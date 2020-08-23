@@ -17,29 +17,17 @@
         </div>
       </div>
     </div>
-    <div class="mobile" v-if="device.device.type === 'smartphone'">
+    <div class="mobile" v-else>
       <div class="logo">
-        <img
-          v-if="device.device.type === 'smartphone'"
-          src="@/assets/images/MOBILE-index-logo.png"
-          alt="logo"
-        />
+        <img src="@/assets/images/MOBILE-index-logo.png" alt="logo" />
       </div>
       <div class="doctor">
-        <img
-          v-if="device.device.type === 'smartphone'"
-          src="@/assets/images/MOBILE-index-doctor.png"
-          alt="doctor"
-        />
+        <img src="@/assets/images/MOBILE-index-doctor.png" alt="doctor" />
       </div>
 
       <div class="goTest">
         <a src>
-          <img
-            v-if="device.device.type === 'smartphone'"
-            src="@/assets/images/MOBILE-com-go-button.png"
-            alt="logo"
-          />
+          <img src="@/assets/images/MOBILE-com-go-button.png" alt="logo" />
         </a>
       </div>
     </div>
@@ -87,7 +75,7 @@ export default {
   padding-left: calc(50% - 430px);
   padding-right: calc(50% - 430px);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     background-image: url("~@/assets/images/MOBILE-index-bg.png");
   }
 
@@ -124,39 +112,41 @@ export default {
     }
   }
 
-  .mobile {
-    display: flex;
-    height: 100%;
-    overflow: hidden;
-    flex-direction: column;
-
-    .logo {
-      z-index: 2;
-      position: relative;
-      max-width: 750px;
-      max-height: 450px;
-      min-width: 100%;
-      width: 100%;
+  @media screen and (max-width: 768px) {
+    .mobile {
+      display: flex;
       height: 100%;
-      flex: 0 1 auto;
-    }
+      overflow: hidden;
+      flex-direction: column;
 
-    .goTest {
-      z-index: 2;
-      position: absolute;
-      bottom: 0;
-    }
+      .logo {
+        z-index: 2;
+        position: relative;
+        max-width: 750px;
+        max-height: 450px;
+        min-width: 100%;
+        width: 100%;
+        height: 100%;
+        flex: 0 1 auto;
+      }
 
-    .doctor {
-      z-index: 1;
-      max-width: 700px;
-      position: relative;
-      bottom: -10px;
-      max-width: 562px;
-      min-width: 100%;
-      -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-      flex: 0 1 auto;
+      .goTest {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .doctor {
+        z-index: 1;
+        max-width: 700px;
+        position: relative;
+        bottom: -10px;
+        max-width: 562px;
+        min-width: 100%;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+      }
     }
   }
 }
