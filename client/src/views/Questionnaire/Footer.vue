@@ -16,8 +16,10 @@ export default {
 
 <style  lang="scss" scoped>
 footer {
-  // position: fixed;
-  // bottom: 0;
+  @media screen and (min-width: 769px) {
+    position: fixed;
+    bottom: 0;
+  }
   width: 100%;
   color: #fff;
   background-color: rgb(116, 86, 4);

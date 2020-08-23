@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html {
+  @media screen and (max-width: 769px) {
+    overflow-y: hidden;
+  }
+}
 .main {
   width: 100%;
   min-height: 100vh;

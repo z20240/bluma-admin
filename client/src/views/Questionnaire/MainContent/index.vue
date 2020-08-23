@@ -72,6 +72,11 @@ export default {
   align-items: center;
   flex-flow: row nowrap;
 
+  @media screen and (min-width: 769px) {
+    height: calc(100vh - 100px);
+    overflow: hidden;
+  }
+
   height: 100vh;
   overflow: auto;
 
