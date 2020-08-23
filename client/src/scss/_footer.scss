@@ -1,8 +1,10 @@
 footer.footer {
-  .logo {
-    img {
-      width: auto;
-      height: $footer-logo-height;
-    }
-  }
+	z-index: 1;
+
+	.logo {
+		img {
+			width: auto;
+			height: $footer-logo-height;
+		}
+	}
 }

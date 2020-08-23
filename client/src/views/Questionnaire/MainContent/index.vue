@@ -82,54 +82,76 @@ export default {
   padding-left: calc(50% - 430px);
   padding-right: calc(50% - 430px);
 
+  @media screen and (min-width: 768px) {
+    background-image: url("~@/assets/images/MOBILE-index-bg.png");
+  }
+
   .pc {
     height: 100%;
-  }
 
-  .left {
-    display: flex;
-    flex-flow: row nowrap;
-    position: relative;
-    width: 100%;
-    height: calc(100% - 100px);
-  }
-
-  .doctor {
-    img {
-      height: 100%;
-    }
-  }
-
-  .right {
-    max-width: 500px;
-    position: absolute;
-    right: 0;
-    top: 50px;
-
-    display: flex;
-    flex-flow: column nowrap;
-  }
-
-  .goTest {
-    width: 60%;
-    margin: auto;
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-
-    background-image: url("~@/assets/images/MOBILE-index-bg.png");
-
-    .logo {
+    .left {
+      display: flex;
+      flex-flow: row nowrap;
+      position: relative;
+      width: 100%;
+      height: calc(100% - 100px);
     }
 
     .doctor {
+      img {
+        height: 100%;
+      }
+    }
+
+    .right {
+      max-width: 500px;
+      position: absolute;
+      right: 0;
+      top: 50px;
+
+      display: flex;
+      flex-flow: column nowrap;
     }
 
     .goTest {
-      display: block;
+      width: 60%;
+      margin: auto;
+    }
+  }
+
+  .mobile {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+
+    .logo {
+      z-index: 2;
+      position: relative;
+      max-width: 750px;
+      max-height: 450px;
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      flex: 0 1 auto;
+    }
+
+    .goTest {
+      z-index: 2;
       position: absolute;
-      bottom: 15%;
+      bottom: 0;
+    }
+
+    .doctor {
+      z-index: 1;
+      max-width: 700px;
+      position: relative;
+      bottom: -10px;
+      max-width: 562px;
+      min-width: 100%;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
     }
   }
 }
