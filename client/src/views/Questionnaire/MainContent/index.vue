@@ -82,12 +82,16 @@ export default {
   padding-left: calc(50% - 430px);
   padding-right: calc(50% - 430px);
 
+  .pc {
+    height: 100%;
+  }
+
   .left {
     display: flex;
     flex-flow: row nowrap;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 100px);
   }
 
   .doctor {
