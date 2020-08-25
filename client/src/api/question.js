@@ -3,7 +3,7 @@ import request from './request';
 export function getQuestion() {
     return request({
         url: '/api/questions',
-        method: 'get',
+        method: 'get'
     });
 }
 
@@ -40,3 +40,9 @@ export function deleteQuestion(data) {
     });
 }
 
+export function getExam() {
+    return request({
+        url: '/api/exam',
+        method: 'get'
+    });
+}

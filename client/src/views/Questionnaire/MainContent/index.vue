@@ -10,7 +10,7 @@
             <img src="@/assets/images/PC-com_index_logo.png" alt="logo" />
           </div>
           <div class="goTest">
-            <a src>
+            <a href="/#/exam">
               <img src="@/assets/images/PC-com-go-button.png" alt="logo" />
             </a>
           </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="goTest">
-        <a src>
+        <a href="/#/exam">
           <img src="@/assets/images/MOBILE-com-go-button.png" alt="logo" />
         </a>
       </div>
@@ -78,6 +78,9 @@ export default {
   @media screen and (max-width: 768px) {
     background-image: url("~@/assets/images/MOBILE-index-bg.png");
   }
+	.goTest a {
+		display: block;
+	}
 
   .pc {
     height: 100%;

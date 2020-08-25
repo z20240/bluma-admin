@@ -14,8 +14,12 @@ const routes = [
         path: '/',
         component: () => import('@/views/Questionnaire'),
         meta: {
-            title: '中正大學犯罪防治中心',
+            title: '中正大學犯罪防治中心'
         }
+    },
+    {
+        path: '/exam',
+        component: () => import('@/views/Exam')
     },
     {
         path: '/admin',
@@ -33,7 +37,7 @@ const routes = [
                 },
                 path: '/',
                 name: 'home',
-                component: Home,
+                component: Home
             },
             {
                 meta: {
@@ -46,7 +50,10 @@ const routes = [
                 // this generates a separate chunk (about.[hash].js) for this route
                 // which is lazy-loaded when the route is visited.
                 component: () =>
-                    import(/* webpackChunkName: "tables" */ '@/views/Tables.vue'),
+                    import(
+                        /* webpackChunkName: "tables" */
+                        '@/views/Tables.vue'
+                    )
             },
             {
                 meta: {
@@ -59,7 +66,7 @@ const routes = [
                 // this generates a separate chunk (about.[hash].js) for this route
                 // which is lazy-loaded when the route is visited.
                 component: () =>
-                    import(/* webpackChunkName: "tables" */ '@/views/Question'),
+                    import(/* webpackChunkName: "tables" */ '@/views/Question')
             },
             {
                 meta: {
@@ -69,7 +76,7 @@ const routes = [
                 path: 'forms',
                 name: 'forms',
                 component: () =>
-                    import(/* webpackChunkName: "forms" */ '@/views/Forms.vue'),
+                    import(/* webpackChunkName: "forms" */ '@/views/Forms.vue')
             },
             {
                 meta: {
@@ -79,8 +86,11 @@ const routes = [
                 path: 'profile',
                 name: 'profile',
                 component: () =>
-                    import(/* webpackChunkName: "profile" */ '@/views/Profile.vue'),
-            },
+                    import(
+                        /* webpackChunkName: "profile" */
+                        '@/views/Profile.vue'
+                    )
+            }
         ]
     }
 ];
@@ -92,9 +102,12 @@ const router = new VueRouter({
         if (savedPosition) {
             return savedPosition;
         } else {
-            return { x: 0, y: 0 };
+            return {
+                x: 0,
+                y: 0
+            };
         }
-    },
+    }
 });
 
 export default router;
