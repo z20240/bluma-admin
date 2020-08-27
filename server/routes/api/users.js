@@ -88,4 +88,34 @@ router.post('/info', async function (req, res) {
     }
 });
 
+router.post('/add', async function (req, res) {
+    const content = req.body;
+
+    if (!content.username || !content.password || !content.email) {
+        return res.json(Response.failed('No user name, password or email'));
+    }
+
+    console.log('content', content);
+
+    try {
+
+        const payload = {
+            username: content.username,
+            email: content.email,
+            password: content.password,
+            status: 1,
+            avatar : 'https://i.pravatar.cc/300',
+        };
+
+        await req.app.locals.db.collection(Database.tables.User).insertOne(payload);
+
+        delete payload.password;
+
+        res.json(Response.success({Item: payload}));
+    } catch (err) {
+        console.error('err', err);
+        res.json(Response.failed(err.message));
+    }
+});
+
 module.exports = router;

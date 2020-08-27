@@ -16,7 +16,11 @@ router.use(
     jwt({
         secret: process.env.JWT_SECRET,
     }).unless({
-        path: ['/api/users/login', '/api/exam'],
+        path: [
+            '/api/users/login',
+            '/api/users/add',
+            '/api/exam'
+        ],
     })
 );
 

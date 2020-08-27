@@ -54,6 +54,7 @@ module.exports.Database = {
     tables: {
         User: 'user',
         Question: 'question',
+        Log: 'log'
     },
 };
 
