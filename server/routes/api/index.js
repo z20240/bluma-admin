@@ -20,7 +20,7 @@ router.use(
             '/api/users/login',
             '/api/users/add',
             '/api/exam',
-            'api/exam/validate-answers'
+            '/api/exam/validate-answers'
         ],
     })
 );
