@@ -33,7 +33,7 @@ router.get('/', async function (req, res) {
     try {
         const result = /** @type {IQuestion[]} */ (await db_toArrayAsync());
 
-        let questions = [];
+        let questions = /** @type {IQuestion[]} */ ([]);
         const MAX_QUESTION_NUMBER = Math.min(CONST.MAX_QUESTION_NUMBER, result.length);
 
         for (let i = 0; i < MAX_QUESTION_NUMBER; i++) {
@@ -41,7 +41,7 @@ router.get('/', async function (req, res) {
             questions = [...questions,  ...result.splice(rnd, 1)];
         }
 
-        res.json(Response.success({ Data: questions }));
+        res.json(Response.success({ Data: questions.sort((a, b) => a.id - b.id) }));
 
     } catch (err) {
         console.error('err', err);
@@ -65,7 +65,9 @@ router.post('/validate-answers', async (req, res) => {
 
         const questions = result.filter(question => chooseQuestionIDs.includes(question.id));
 
-        const checkAnswers = questions.map(question => ({ id : question.id, correct: Number(question.correct) === answers[question.id] }));
+        const checkAnswers = questions
+            .map(question => ({ id : question.id, correct: Number(question.correct) === answers[question.id] }))
+            .sort((a, b) => a.id - b.id);
 
         const resultAnswer = {
             ip: ip || '',

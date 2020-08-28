@@ -19,7 +19,8 @@ router.use(
         path: [
             '/api/users/login',
             '/api/users/add',
-            '/api/exam'
+            '/api/exam',
+            'api/exam/validate-answers'
         ],
     })
 );
