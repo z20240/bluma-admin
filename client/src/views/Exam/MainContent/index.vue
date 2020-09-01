@@ -158,6 +158,9 @@ export default {
 
         .question_text {
             font-size: 28px;
+						@media screen and (max-width: 500px) {
+                font-size: 20px;
+						}
         }
 
         .logo {
@@ -182,6 +185,13 @@ export default {
         color: white;
         font-size: 20px;
         font-weight: bold;
+
+				@media screen and (max-width: 500px){
+					padding: 20px;
+					top: 0%;
+					left: 0%;
+					transform: translate(0%, 0%);
+				}
     }
 
     .answers {
