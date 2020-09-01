@@ -27,9 +27,6 @@ export default {
         MainContent,
         Footer
     },
-    data() {
-
-    },
     setup() {
         onMounted(async () => {
             document.documentElement.classList.remove(...themeClassList);
