@@ -8,6 +8,21 @@ const Response = require('../../response');
 
 const { Database, GetSequenceNextValue } = require('../../database/mongodb');
 
+/**
+ * @typedef IAnswer
+ * @property {number} id
+ * @property {string} option
+ */
+
+/**
+ * @typedef IQuestion
+ * @property {object} _id
+ * @property {number} id
+ * @property {string} question
+ * @property {IAnswer} answer
+ * @property {number} correct
+ */
+
 router.get('/', async function (req, res) {
     // jwt 會做 auth, 並且將資料寫入 req.user
     console.log('req.user', req.user);
@@ -21,6 +36,22 @@ router.get('/', async function (req, res) {
         console.log('req.app.locals.db.collection -> result', result);
 
         res.json(Response.success({ Data: result }));
+    } catch (err) {
+        console.error('err', err);
+        res.json(Response.failed(err.message));
+    }
+});
+
+router.get('/all', async function (req, res) {
+
+    const db_cursor = req.app.locals.db.collection(Database.tables.Question).find({});
+    const db_toArrayAsync = promisify(db_cursor.toArray).bind(db_cursor);
+
+    try {
+        const result = /** @type {IQuestion[]} */ (await db_toArrayAsync());
+
+        res.json(Response.success({ Data: result.sort((a, b) => a.id - b.id) }));
+
     } catch (err) {
         console.error('err', err);
         res.json(Response.failed(err.message));
