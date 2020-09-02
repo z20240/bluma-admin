@@ -31,13 +31,15 @@ const moment = require('moment');
 
 router.get('/', async function (req, res) {
 
-    const startTime = req.query.startTime || moment('2020-01-01T00:00:00Z').toISOString();
-    const endTime = req.query.endTime || moment().toISOString();
+    const { startTime, endTime } = req.query;
+
+    const start = moment(String(startTime) || '2020-01-01T00:00:00Z').toISOString();
+    const end = moment(String(endTime) || moment().format('YYYY-MM-DDTHH:mm:ssZ')).toISOString();
 
     const db_cursor = req.app.locals.db.collection(Database.tables.Log).find({
         time: {
-            $gte: startTime,
-            $lt: endTime
+            $gte: start,
+            $lt: end
         }
     }).sort({ time: -1 });
 
