@@ -14,9 +14,9 @@
         </div>
         <div class="navbar-menu fadeIn animated faster" :class="{'is-active':isMenuNavBarActive}">
             <div class="navbar-end">
-                <nav-bar-menu class="has-user-avatar">
+                <!-- <nav-bar-menu class="has-user-avatar">
                     <div class="is-user-avatar">
-                        <img :src="userAvatar" :alt="userName" />
+                        <b-icon icon="account" custom-size="default" />
                     </div>
                     <div class="is-user-name">
                         <span>{{ userName }}</span>
@@ -28,7 +28,12 @@
                             <span>My Profile</span>
                         </a>
                     </div>
-                </nav-bar-menu>
+                </nav-bar-menu>-->
+
+                <a class="navbar-item" title="account">
+                    <b-icon icon="account" custom-size="default" />
+                    <span>{{ userName }}</span>
+                </a>
 
                 <a class="navbar-item" title="Log out" @click="logout">
                     <b-icon icon="logout" custom-size="default" />
@@ -40,14 +45,14 @@
 </template>
 
 <script>
-import NavBarMenu from '@/components/NavBarMenu';
+// import NavBarMenu from '@/components/NavBarMenu';
 import { mapGetters } from 'vuex';
 
 export default {
     name: 'NavBar',
-    components: {
-        NavBarMenu
-    },
+    // components: {
+    //     NavBarMenu
+    // },
     data() {
         return {
             isMenuNavBarActive: false
@@ -90,8 +95,8 @@ export default {
 
 
 <style lang="scss" scoped>
-    nav {
-        border-bottom: 1px solid smokewhite;
-        box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
-    }
+nav {
+    border-bottom: 1px solid smokewhite;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+}
 </style>
