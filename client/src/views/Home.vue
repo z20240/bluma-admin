@@ -1,33 +1,37 @@
 <template>
     <section class="section">
-        <title-bar>
-            Welcome, {{ userName }}!
-        </title-bar>
+        {{ correctRateByEachQuestions }}
+        {{ Array.from(new Set(logs.flatMap(log => log.details).map(m => m.id))) }}
+        <title-bar>歡迎, {{ userName }}!</title-bar>
         <tiles>
             <card-widget
                 class="tile is-child"
                 type="is-primary"
-                icon="account-multiple"
-                :number="512"
-                label="Clients"
+                icon="frequently-asked-questions"
+                :number="logs.length"
+                label="總答題數"
             />
             <card-widget
                 class="tile is-child"
                 type="is-info"
-                icon="cart-outline"
-                :number="7770"
-                prefix="$"
-                label="Sales"
-            />
-            <card-widget
-                class="tile is-child"
-                type="is-success"
-                icon="chart-timeline-variant"
-                :number="256"
+                icon="percent-outline"
+                :number="avgCorrectRate"
                 suffix="%"
-                label="Performance"
+                label="答題正確率"
             />
         </tiles>
+
+        <card-component title="各題目答對率" icon="finance">
+            <div v-if="defaultChart.chartData" class="chart-area">
+                <bar-chart
+                    style="height: 100%"
+                    ref="bigBarChart"
+                    chart-id="big-bar-chart"
+                    :chart-data="barChartDataSets"
+                    :extra-options="barChartOptions"
+                ></bar-chart>
+            </div>
+        </card-component>
 
         <card-component
             title="Performance"
@@ -57,11 +61,14 @@
 
 <script>
 // @ is an alias to /src
+import moment from 'moment';
 import { mapGetters } from 'vuex';
+import { apiGetHistory, apiGetAllQuestion } from '@/api';
 import * as chartConfig from '@/components/Charts/chart.config';
 import CardComponent from '@/components/CardComponent';
 import Tiles from '@/components/Tiles';
 import CardWidget from '@/components/CardWidget';
+import BarChart from '@/components/Charts/BarChart';
 import LineChart from '@/components/Charts/LineChart';
 import ClientsTableSample from '@/components/ClientsTableSample';
 import TitleBar from '@/components/TitleBar';
@@ -74,10 +81,19 @@ export default {
         CardWidget,
         Tiles,
         CardComponent,
+        BarChart,
         LineChart
     },
     data() {
         return {
+            queryData: {
+                startTime: moment().subtract(1, 'months').format('YYYY-MM-DDTHH:mm:ssZ'),
+                endTime: moment().format('YYYY-MM-DDTHH:mm:ssZ'),
+            },
+            /** @type { import('../interface/IHistory').ILog[] } */
+            logs: [],
+            /** @type { impport('../interface/IQuestion').IQuestion[] } */
+            questions: [],
             defaultChart: {
                 chartData: null,
                 extraOptions: chartConfig.chartOptionsMain
@@ -87,9 +103,87 @@ export default {
     computed: {
         ...mapGetters('app', [
             'userName'
-        ])
+        ]),
+        avgCorrectRate() {
+            const rate = this.logs.reduce((pre, cur) => pre + cur.score, 0) / (this.logs.length * 100);
+            return Math.round(rate * 10000) / 100;
+        },
+        questionIDs() {
+            return this.questions.map(question => question.id);
+        },
+        questionMap() {
+            return this.questions.reduce((prev, question) => ({
+                ...prev,
+                [question.id]: question
+            }), {});
+        },
+        correctRateByEachQuestions() {
+            const roundTo2 = (x, y) => Math.round(Number(x) / Number(y) * 10000) / 100;
+
+            // 這邊改成只顯示有被答題過的
+
+            const correctQuestionsMap = this.logs
+                .flatMap(log => log.details)
+                .reduce((prev, {id, correct}) => ({
+                    ...prev,
+                    [id]: {
+                        count: prev[id] ? prev[id].count + 1 : 1,
+                        correct: prev[id] ? prev[id].correct + Number(!!correct) : Number(!!correct)
+                    },
+                }), {});
+
+            return this.questionIDs.map(id => {
+                const record = correctQuestionsMap[id];
+                return record ? roundTo2(record.correct, record.count) : 0;
+            });
+        },
+        barChartDataSets() {
+            return {
+                datasets: [
+                    {
+                        backgroundColor: `rgba(0, 209, 178, 0.1)`,
+                        borderColor: `rgba(0, 209, 178, 0.8)`,
+                        borderWidth: 1,
+                        borderSkipped: 'left',
+                        data: this.correctRateByEachQuestions
+                    }
+                ],
+                labels: this.questionIDs // 這邊要跟著動
+            };
+        },
+        barChartOptions() {
+            const self = this;
+            return {
+                maintainAspectRatio: false,
+                legend: { display: false },
+                responsive: true,
+                tooltips: {
+                    callbacks: {
+                        title: function([tooltipItem]) {
+                            return `題 ${tooltipItem.label}：${self.questionMap[tooltipItem.label].question}`;
+                        },
+                        label: function(tooltipItem, data) {
+                            console.log("barChartOptions -> tooltipItem, data", tooltipItem, data);
+                            return `答對率：${tooltipItem.value}%`;
+                        },
+                    },
+                    backgroundColor: '#aaa',
+                    titleFontColor: '#333',
+                    bodyFontColor: '#111',
+                    bodySpacing: 4,
+                    xPadding: 12,
+                    mode: 'nearest',
+                    intersect: 0,
+                    position: 'nearest'
+                },
+            };
+        }
+
     },
     mounted() {
+        this.getAllQuestions();
+        this.getHistory();
+
         this.fillChartData();
 
         this.$buefy.snackbar.open({
@@ -98,6 +192,34 @@ export default {
         });
     },
     methods: {
+        async getHistory() {
+            try {
+                const { data } = await apiGetHistory(this.queryData);
+                this.logs = data.Data;
+                console.log("getHistory -> data", this.logs);
+            } catch (err) {
+                console.error("getHistory -> err", err);
+                this.$buefy.snackbar.open({
+                    message: 'Cannot get history',
+                    type: 'is-danger',
+                    queue: false
+                });
+            }
+        },
+        async getAllQuestions() {
+            try {
+                const { data } = await apiGetAllQuestion();
+                this.questions = data.Data;
+                console.log("getAllQuestions -> data", this.questions);
+            } catch (err) {
+                console.error("getAllQuestions -> err", err);
+                this.$buefy.snackbar.open({
+                    message: 'Cannot get questions',
+                    type: 'is-danger',
+                    queue: false
+                });
+            }
+        },
         randomChartData(n) {
             const data = [];
 

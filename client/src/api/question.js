@@ -7,6 +7,13 @@ export function getQuestion() {
     });
 }
 
+export function getAllQuestions() {
+    return request({
+        url: '/api/questions/all',
+        method: 'get'
+    });
+}
+
 /**
  * @param {import('../interface/IQuestion').IQuestion} data
  */

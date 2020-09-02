@@ -49,6 +49,8 @@ export default {
         grow(m) {
             const v = Math.ceil(this.newValue + m);
 
+            if (isNaN(this.value)) return false;
+
             if (v > this.value) {
                 this.newValue = this.value;
                 return false;

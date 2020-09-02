@@ -41,22 +41,6 @@ const routes = [
             },
             {
                 meta: {
-                    title: 'Tables',
-                    requiresAuth: true
-                },
-                path: 'tables',
-                name: 'tables',
-                // route level code-splitting
-                // this generates a separate chunk (about.[hash].js) for this route
-                // which is lazy-loaded when the route is visited.
-                component: () =>
-                    import(
-                        /* webpackChunkName: "tables" */
-                        '@/views/Tables.vue'
-                    )
-            },
-            {
-                meta: {
                     title: '題庫',
                     requiresAuth: true
                 },
