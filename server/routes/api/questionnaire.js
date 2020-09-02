@@ -64,6 +64,22 @@ router.get('/', async function (req, res) {
 });
 
 
+router.get('/question-numbers', async function (req, res) {
+
+    const db_cursor = req.app.locals.db.collection(Database.tables.Question).find({});
+    const db_toArrayAsync = promisify(db_cursor.toArray).bind(db_cursor);
+
+    try {
+        const result = /** @type {IQuestion[]} */ (await db_toArrayAsync());
+
+        res.json(Response.success({ Data: result.sort((a, b) => a.id - b.id) }));
+
+    } catch (err) {
+        console.error('err', err);
+        res.json(Response.failed(err.message));
+    }
+});
+
 router.post('/validate-answers', async (req, res) => {
 
     /** @type { {answers: {[id: string]: number}, ip: string} } */
