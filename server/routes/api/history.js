@@ -31,6 +31,8 @@ const moment = require('moment');
 
 router.get('/', async function (req, res) {
 
+    console.log('req.query', req.query);
+    console.log('req.params', req.params);
     const startTime = req.query.startTime || moment('2020-01-01T00:00:00Z').toISOString();
     const endTime = req.query.startTime || moment().toISOString();
 
