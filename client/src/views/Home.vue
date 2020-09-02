@@ -57,6 +57,9 @@ export default {
     },
     data() {
         return {
+            colorSet: [
+                `rgba(0, 209, 178, 1)`, `rgba(166, 127, 231, 1)`, `rgba(238, 138, 122, 1)`
+            ],
             queryData: {
                 startTime: moment().subtract(1, 'months').format('YYYY-MM-DDTHH:mm:ssZ'),
                 endTime: moment().format('YYYY-MM-DDTHH:mm:ssZ'),
@@ -108,10 +111,11 @@ export default {
             return {
                 datasets: [
                     {
-                        backgroundColor: `rgba(0, 209, 178, 0.1)`,
-                        borderColor: `rgba(0, 209, 178, 0.8)`,
+                        backgroundColor: Object.keys(this.correctQuestionsMap)
+                            .map((_, indx) => this.colorSet[indx % this.colorSet.length].replace('1)', '0.1)')),
+                        borderColor: Object.keys(this.correctQuestionsMap)
+                            .map((_, indx) => this.colorSet[indx % this.colorSet.length].replace('1)', '0.8)')),
                         borderWidth: 1,
-                        borderSkipped: 'left',
                         data: this.correctRateByEachQuestions
                     }
                 ],
