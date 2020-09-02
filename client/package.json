@@ -19,6 +19,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
     "device-detector-js": "^2.2.1",
+    "ip": "^1.1.5",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",

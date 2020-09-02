@@ -53,3 +53,11 @@ export function getExam() {
         method: 'get'
     });
 }
+
+export function postAnswers(data) {
+    return request({
+        url: '/api/exam/validate-answers',
+        method: 'post',
+        data
+    });
+}

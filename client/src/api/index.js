@@ -1,6 +1,5 @@
 import { loginByUsername, logout, getUserInfo } from './app';
-import { createQuestion, getQuestion, getAllQuestions, updateQuestion, deleteQuestion, getExam } from './question';
-import { getHistory } from './history';
+import { createQuestion, getQuestion, getAllQuestions, updateQuestion, deleteQuestion, getExam, postAnswers } from './question';
 
 /** auth */
 export const apiLoginByUsername = loginByUsername;
@@ -14,6 +13,4 @@ export const apiGetAllQuestion = getAllQuestions;
 export const apiUpdateQuestion = updateQuestion;
 export const apiDeleteQuestion = deleteQuestion;
 export const apiGetExams = getExam;
-
-/** History */
-export const apiGetHistory = getHistory;
+export const apiGetResult = postAnswers;
