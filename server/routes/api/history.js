@@ -34,7 +34,7 @@ router.get('/', async function (req, res) {
     console.log('req.query', req.query);
     console.log('req.params', req.params);
     const startTime = req.query.startTime || moment('2020-01-01T00:00:00Z').toISOString();
-    const endTime = req.query.startTime || moment().toISOString();
+    const endTime = req.query.endTime || moment().toISOString();
 
     const db_cursor = req.app.locals.db.collection(Database.tables.Log).find({
         time: {
