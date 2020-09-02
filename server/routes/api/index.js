@@ -5,6 +5,7 @@ var router = express.Router();
 const users = require('./users');
 const questions = require('./questions');
 const questionnaire = require('./questionnaire');
+const history = require('./history');
 const jwt = require('express-jwt');
 
 /* GET home page. */
@@ -28,5 +29,6 @@ router.use(
 router.use('/users', users);
 router.use('/questions', questions);
 router.use('/exam', questionnaire);
+router.use('/history', history);
 
 module.exports = router;

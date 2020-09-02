@@ -15,6 +15,20 @@
  * @property {number} correct
  */
 
+/**
+ * @typedef IDetail
+ * @property {number} id
+ * @property {boolean} correct
+ */
+
+/**
+ * @typedef IAnswerDetail
+ * @property {string} ip
+ * @property {string} time
+ * @property {number} score
+ * @property {IDetail[]} details
+ */
+
 var express = require('express');
 var router = express.Router();
 var promisify = require('util').promisify;
@@ -69,15 +83,15 @@ router.post('/validate-answers', async (req, res) => {
             .map(question => ({ id : question.id, correct: Number(question.correct) === answers[question.id] }))
             .sort((a, b) => a.id - b.id);
 
-        const resultAnswer = {
+        const resultAnswer = /** @type {IAnswerDetail} */ ({
             ip: ip || '',
             time: new Date().toISOString(),
             score: checkAnswers.filter(answer => answer.correct).length * 10,
             details: checkAnswers
-        };
+        });
 
         const dbQuestion = req.app.locals.db.collection(Database.tables.Log);
-        const id = (await GetSequenceNextValue(Database.tables.Log)) + 1;
+        const id = /** @type {number} */ ((await GetSequenceNextValue(Database.tables.Log)) + 1);
 
         await dbQuestion.insertOne({
             ...resultAnswer,
