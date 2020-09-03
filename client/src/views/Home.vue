@@ -2,12 +2,25 @@
     <section class="section">
         <title-bar>歡迎, {{ userName }}!</title-bar>
         <tiles>
-            <card-widget class="tile is-child" type="is-primary" icon="frequently-asked-questions" :number="logs.length" label="總樣本數" />
-            <card-widget class="tile is-child" type="is-info" icon="percent-outline" :number="avgCorrectRate" suffix="%" label="答題正確率" />
+            <card-widget
+                class="tile is-child"
+                type="is-primary"
+                icon="frequently-asked-questions"
+                :number="logs.length"
+                label="總樣本數"
+            />
+            <card-widget
+                class="tile is-child"
+                type="is-info"
+                icon="percent-outline"
+                :number="avgCorrectRate"
+                suffix="%"
+                label="答題正確率"
+            />
         </tiles>
 
-        <card-component title="各題目答對率" icon="finance">
-            <div v-if="defaultChart.chartData" class="chart-area">
+        <card-component title="統計近30天各題目答對率" icon="finance">
+            <div class="chart-area">
                 <bar-chart
                     style="height: 100%"
                     ref="bigBarChart"
@@ -18,14 +31,14 @@
             </div>
         </card-component>
 
-        <card-component title="Performance" @header-icon-click="fillChartData" icon="finance" header-icon="reload">
-            <div v-if="defaultChart.chartData" class="chart-area">
+        <card-component title="近30天作答趨勢" icon="finance">
+            <div class="chart-area">
                 <line-chart
                     style="height: 100%"
                     ref="bigChart"
                     chart-id="big-line-chart"
-                    :chart-data="defaultChart.chartData"
-                    :extra-options="defaultChart.extraOptions"
+                    :chart-data="lineChartDataSets"
+                    :extra-options="lineChartOptions"
                 ></line-chart>
             </div>
         </card-component>
@@ -57,11 +70,17 @@ export default {
     },
     data() {
         return {
+            lineCategory: [
+                {
+                },
+                {
+                }
+            ],
             colorSet: [
                 `rgba(0, 209, 178, 1)`, `rgba(166, 127, 231, 1)`, `rgba(238, 138, 122, 1)`
             ],
             queryData: {
-                startTime: moment().subtract(1, 'months').format('YYYY-MM-DDTHH:mm:ssZ'),
+                startTime: moment().subtract(30, 'days').format('YYYY-MM-DDTHH:mm:ssZ'),
                 endTime: moment().format('YYYY-MM-DDTHH:mm:ssZ'),
             },
             /** @type { import('../interface/IHistory').ILog[] } */
@@ -147,14 +166,107 @@ export default {
                     position: 'nearest'
                 },
             };
+        },
+        lastest30days() {
+            const ary = [];
+            for (let i = 0 ; i < 30 ; i++) {
+                const today = moment();
+                ary.push(today.subtract(i, 'day').format('YYYY-MM-DD'));
+            }
+
+            return ary.reverse();
+        },
+        countByDate() {
+            const date = timeStr => moment(timeStr).format('YYYY-MM-DD');
+            const calcUnder60 = (dataOfTheDate, log) => log.score < 60 ? (dataOfTheDate ? dataOfTheDate.under60 + 1 : 1) : (dataOfTheDate ? dataOfTheDate.under60 : 0);
+            const calcUpper60 = (dataOfTheDate, log) => log.score >= 60 ? (dataOfTheDate ? dataOfTheDate.upper60 + 1 : 1) : (dataOfTheDate ? dataOfTheDate.upper60 : 0);
+            const countByDateMap = this.logs.reduce((prev, log) => ({
+                ...prev,
+                [date(log.time)]: {
+                    ...prev[date(log.time)],
+                    total: prev[date(log.time)] ? prev[date(log.time)].total + 1 : 1,
+                    under60: calcUnder60(prev[date(log.time)], log),
+                    upper60: calcUpper60(prev[date(log.time)], log)
+                }
+            }), {});
+
+            return this.lastest30days.reduce((prev, dateStr) => ({
+                total: [...(prev.total || []), (countByDateMap[dateStr] || {}).total || 0],
+                under60: [...(prev.under60 || []), (countByDateMap[dateStr] || {}).under60 || 0],
+                upper60: [...(prev.upper60 || []), (countByDateMap[dateStr] || {}).upper60 || 0],
+            }), {});
+        },
+        lineChartDataSets() {
+            const generalDataSet = {
+                fill: false,
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBorderColor: 'transparent',
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+            };
+            return {
+                datasets: [
+                    {
+                        ...generalDataSet,
+                        label: '總數',
+                        borderColor: this.colorSet[0].replace('1)', '0.8)'),
+                        pointBackgroundColor:
+                            this.colorSet[0].replace('1)', '0.5)'),
+                        pointHoverBackgroundColor:
+                            this.colorSet[0].replace('1)', '0.3)'),
+                        data: this.countByDate.total
+                    },
+                    {
+                        ...generalDataSet,
+                        label: '60 分以上',
+                        borderColor: this.colorSet[1].replace('1)', '0.8)'),
+                        pointBackgroundColor:
+                            this.colorSet[1].replace('1)', '0.5)'),
+                        pointHoverBackgroundColor:
+                            this.colorSet[1].replace('1)', '0.3)'),
+                        data: this.countByDate.upper60
+                    },
+                    {
+                        ...generalDataSet,
+                        label: '低於 60 分',
+                        borderColor: this.colorSet[2].replace('1)', '0.8)'),
+                        pointBackgroundColor:
+                            this.colorSet[2].replace('1)', '0.5)'),
+                        pointHoverBackgroundColor:
+                            this.colorSet[2].replace('1)', '0.3)'),
+                        data: this.countByDate.under60
+                    }
+                ],
+                labels: this.lastest30days
+            };
+        },
+        lineChartOptions() {
+            // const self = this;
+            return {
+                maintainAspectRatio: false,
+                legend: { display: true },
+                responsive: true,
+                tooltips: {
+                    backgroundColor: '#f5f5f5',
+                    titleFontColor: '#333',
+                    bodyFontColor: '#666',
+                    bodySpacing: 4,
+                    xPadding: 12,
+                    mode: 'nearest',
+                    intersect: 0,
+                    position: 'nearest'
+                },
+            };
         }
 
     },
     mounted() {
         this.getAllQuestions();
         this.getHistory();
-
-        this.fillChartData();
 
         this.$buefy.snackbar.open({
             message: 'Welcome back',
@@ -166,6 +278,7 @@ export default {
             try {
                 const { data } = await apiGetHistory(this.queryData);
                 this.logs = data.Data;
+                console.log("getHistory -> this.logs", this.logs);
             } catch (err) {
                 console.error("getHistory -> err", err);
                 this.$buefy.snackbar.open({
