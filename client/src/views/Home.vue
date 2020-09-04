@@ -4,10 +4,17 @@
         <tiles>
             <card-widget
                 class="tile is-child"
-                type="is-primary"
+                type="is-success"
                 icon="frequently-asked-questions"
                 :number="logs.length"
-                label="總樣本數"
+                label="累計達題人次"
+            />
+            <card-widget
+                class="tile is-child"
+                type="is-warning"
+                icon="frequently-asked-questions"
+                :number="todaylogNumber"
+                label="今日達題人次"
             />
             <card-widget
                 class="tile is-child"
@@ -91,6 +98,9 @@ export default {
         ...mapGetters('app', [
             'userName'
         ]),
+        todaylogNumber() {
+            return this.logs.filter(log => moment(log.time).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')).length;
+        },
         avgCorrectRate() {
             const rate = this.logs.reduce((pre, cur) => pre + cur.score, 0) / (this.logs.length * 100);
             return Math.round(rate * 10000) / 100;
