@@ -70,12 +70,6 @@ export default {
     },
     data() {
         return {
-            lineCategory: [
-                {
-                },
-                {
-                }
-            ],
             colorSet: [
                 `rgba(0, 209, 178, 1)`, `rgba(166, 127, 231, 1)`, `rgba(238, 138, 122, 1)`
             ],
@@ -245,7 +239,6 @@ export default {
             };
         },
         lineChartOptions() {
-            // const self = this;
             return {
                 maintainAspectRatio: false,
                 legend: { display: true },
@@ -310,64 +303,64 @@ export default {
 
             return data;
         },
-        fillChartData() {
-            this.defaultChart.chartData = {
-                datasets: [
-                    {
-                        fill: false,
-                        borderColor: chartConfig.chartColors.default.primary,
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor:
-                            chartConfig.chartColors.default.primary,
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor:
-                            chartConfig.chartColors.default.primary,
-                        pointBorderWidth: 20,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
-                        data: this.randomChartData(9)
-                    },
-                    {
-                        fill: false,
-                        borderColor: chartConfig.chartColors.default.info,
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor:
-                            chartConfig.chartColors.default.info,
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor:
-                            chartConfig.chartColors.default.info,
-                        pointBorderWidth: 20,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
-                        data: this.randomChartData(9)
-                    },
-                    {
-                        fill: false,
-                        borderColor: chartConfig.chartColors.default.danger,
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor:
-                            chartConfig.chartColors.default.danger,
-                        pointBorderColor: 'rgba(255,255,255,0)',
-                        pointHoverBackgroundColor:
-                            chartConfig.chartColors.default.danger,
-                        pointBorderWidth: 20,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 4,
-                        data: this.randomChartData(9)
-                    }
-                ],
-                labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09']
-            };
-        }
+        // fillChartData() {
+        //     this.defaultChart.chartData = {
+        //         datasets: [
+        //             {
+        //                 fill: false,
+        //                 borderColor: chartConfig.chartColors.default.primary,
+        //                 borderWidth: 2,
+        //                 borderDash: [],
+        //                 borderDashOffset: 0.0,
+        //                 pointBackgroundColor:
+        //                     chartConfig.chartColors.default.primary,
+        //                 pointBorderColor: 'rgba(255,255,255,0)',
+        //                 pointHoverBackgroundColor:
+        //                     chartConfig.chartColors.default.primary,
+        //                 pointBorderWidth: 20,
+        //                 pointHoverRadius: 4,
+        //                 pointHoverBorderWidth: 15,
+        //                 pointRadius: 4,
+        //                 data: this.randomChartData(9)
+        //             },
+        //             {
+        //                 fill: false,
+        //                 borderColor: chartConfig.chartColors.default.info,
+        //                 borderWidth: 2,
+        //                 borderDash: [],
+        //                 borderDashOffset: 0.0,
+        //                 pointBackgroundColor:
+        //                     chartConfig.chartColors.default.info,
+        //                 pointBorderColor: 'rgba(255,255,255,0)',
+        //                 pointHoverBackgroundColor:
+        //                     chartConfig.chartColors.default.info,
+        //                 pointBorderWidth: 20,
+        //                 pointHoverRadius: 4,
+        //                 pointHoverBorderWidth: 15,
+        //                 pointRadius: 4,
+        //                 data: this.randomChartData(9)
+        //             },
+        //             {
+        //                 fill: false,
+        //                 borderColor: chartConfig.chartColors.default.danger,
+        //                 borderWidth: 2,
+        //                 borderDash: [],
+        //                 borderDashOffset: 0.0,
+        //                 pointBackgroundColor:
+        //                     chartConfig.chartColors.default.danger,
+        //                 pointBorderColor: 'rgba(255,255,255,0)',
+        //                 pointHoverBackgroundColor:
+        //                     chartConfig.chartColors.default.danger,
+        //                 pointBorderWidth: 20,
+        //                 pointHoverRadius: 4,
+        //                 pointHoverBorderWidth: 15,
+        //                 pointRadius: 4,
+        //                 data: this.randomChartData(9)
+        //             }
+        //         ],
+        //         labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09']
+        //     };
+        // }
     }
 };
 </script>
