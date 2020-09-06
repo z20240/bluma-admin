@@ -192,7 +192,6 @@ export default {
                 });
                 this.isLoading = false;
                 this.score = data.Score;
-                console.log('handleSubmit -> this.result', this.score);
             } catch (err) {
                 console.error(err);
             }
