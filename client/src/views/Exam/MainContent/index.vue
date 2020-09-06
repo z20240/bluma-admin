@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div :class="isLoading ? 'rootWrapper' : ''">
         <div class="main-content" v-if="isLoading">
+			Loading
             <b-icon icon="dots-horizontal" size="is-large" />
-            <div>Loading...</div>
         </div>
         <div v-else>
             <section class="main-content hero is-fullheight-with-navbar">
@@ -228,7 +228,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.rootWrapper {
+	display: flex;
+    height: 100vh;
+}
 .main-content {
+	flex: 1 0 auto;
     font-family: Aria;
     position: relative;
     display: flex;
