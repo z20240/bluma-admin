@@ -102,7 +102,7 @@
                         />
                         <div class="content">
                             <div class="doctor_gif">
-                                <img src="@/assets/images/gif/100.gif" alt="" />
+                                <img :src="handleShowGIF()" alt="" />
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
@@ -116,10 +116,7 @@
                                     v-if="device.device.type !== 'desktop'"
                                 ></div>
                                 <div class="score_number">
-                                    <img
-                                        src="@/assets/images/number/100.png"
-                                        alt=""
-                                    />
+                                    <img :src="handleShowScore()" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -149,8 +146,9 @@ export default {
             questions: [],
             answers: {},
             current_no: 0,
+            score: 0,
             isLoading: true,
-            showResultButton: true,
+            showResultButton: false,
             showResult: false
         };
     },
@@ -192,7 +190,9 @@ export default {
                     ip: this.ip,
                     answers: this.answers
                 });
-                console.log('handleSubmit -> data', data);
+                this.isLoading = false;
+                this.score = data.Score;
+                console.log('handleSubmit -> this.result', this.score);
             } catch (err) {
                 console.error(err);
             }
@@ -205,6 +205,24 @@ export default {
             } else {
                 this.current_no += 1;
             }
+        },
+        handleShowGIF() {
+            let filename = '';
+            if (this.score === 0) {
+                filename = '0';
+            } else if (this.score <= 30) {
+                filename = '30';
+            } else if (this.score <= 60) {
+                filename = '60';
+            } else if (this.score <= 90) {
+                filename = '90';
+            } else {
+                filename = '100';
+            }
+            return require(`@/assets/images/gif/${filename}.gif`);
+        },
+        handleShowScore() {
+            return require(`@/assets/images/number/${this.score}.png`);
         }
     }
 };
@@ -435,6 +453,7 @@ export default {
 
             @media screen and (max-width: 768px) {
                 width: 100%;
+                height: 100%;
                 border: none;
                 border-radius: 0;
                 flex-flow: column nowrap;
@@ -468,6 +487,7 @@ export default {
             @media screen and (max-width: 768px) {
                 max-width: 180px;
                 height: 100px;
+                padding-top: 20px;
             }
         }
     }
