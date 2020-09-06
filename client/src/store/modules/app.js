@@ -106,7 +106,9 @@ const actions = {
             commit('LOGIN', payload);
 
             return payload;
-        } catch (err) {}
+        } catch (err) {
+            console.error('err', err);
+        }
     },
     userLogout({ commit }) {
         removeToken();

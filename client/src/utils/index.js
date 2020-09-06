@@ -10,8 +10,8 @@ const curry = (fn, n) => {
         return args.length >= arity
             ? fn.call(this, ...args)
             : (...rest) => {
-                  return curried.call(this, ...args, ...rest);
-              };
+                return curried.call(this, ...args, ...rest);
+            };
     };
 };
 
