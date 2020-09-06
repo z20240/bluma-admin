@@ -2,7 +2,7 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>指導單位 | 教育部學生事務教育司．承辦單位 | 中正大學犯罪研究中心．反毒專線 | 0800-770885(請請您，幫幫我)</p>
-            <p>Copyright © 2020防治藥物濫用教育中心NCCU all righrs teserved.</p>
+            <p>Copyright © 2020防制藥物濫用教育中心NCCU all righrs teserved.</p>
         </div>
     </footer>
 </template>

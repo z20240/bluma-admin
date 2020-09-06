@@ -2,28 +2,9 @@
     <section class="section">
         <title-bar>歡迎, {{ userName }}!</title-bar>
         <tiles>
-            <card-widget
-                class="tile is-child"
-                type="is-success"
-                icon="frequently-asked-questions"
-                :number="logs.length"
-                label="累計達題人次"
-            />
-            <card-widget
-                class="tile is-child"
-                type="is-warning"
-                icon="frequently-asked-questions"
-                :number="todaylogNumber"
-                label="今日達題人次"
-            />
-            <card-widget
-                class="tile is-child"
-                type="is-info"
-                icon="percent-outline"
-                :number="avgCorrectRate"
-                suffix="%"
-                label="答題正確率"
-            />
+            <card-widget class="tile is-child" type="is-success" icon="frequently-asked-questions" :number="logs.length" label="累計答題人次" />
+            <card-widget class="tile is-child" type="is-warning" icon="frequently-asked-questions" :number="todaylogNumber" label="今日答題人次" />
+            <card-widget class="tile is-child" type="is-info" icon="percent-outline" :number="avgCorrectRate" suffix="%" label="答題正確率" />
         </tiles>
 
         <card-component title="統計近30天各題目答對率" icon="finance">
@@ -154,7 +135,7 @@ export default {
                 tooltips: {
                     callbacks: {
                         title: function([tooltipItem]) {
-                            return `題 ${tooltipItem.label}：${self.questionMap[tooltipItem.label].question}`;
+                            return `題目：${self.questionMap[tooltipItem.label].question}`;
                         },
                         label: function(tooltipItem) {
                             return `答對率：${tooltipItem.value}%`;

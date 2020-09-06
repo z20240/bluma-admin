@@ -2,7 +2,9 @@
     <aside v-show="isAsideVisible" class="aside is-placed-left is-expanded">
         <div class="image">
             <a>
-                <img src="@/assets/jblogo-icon.png" />
+                <img :style="{
+                    borderRadius: '50%'
+                }" src="@/assets/nccu-logo.jpg" />
             </a>
         </div>
         <div class="menu is-menu-main">

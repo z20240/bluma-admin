@@ -3,7 +3,7 @@ export default function() {
         {
             to: '/admin',
             icon: 'desktop-mac',
-            label: 'Dashboard'
+            label: '儀表板'
         },
         // {
         //     to: '/tables',

@@ -138,13 +138,7 @@ export default {
         <title-bar>題庫</title-bar>
 
         <b-collapse class="card" animation="slide" aria-id="contentIdForA11y3">
-            <div
-                slot="trigger"
-                slot-scope="props"
-                class="card-header"
-                role="button"
-                aria-controls="contentIdForA11y3"
-            >
+            <div slot="trigger" slot-scope="props" class="card-header" role="button" aria-controls="contentIdForA11y3">
                 <p class="card-header-title">{{ CONST.EDIT_TYPES_MSG[ editType ] }}題庫</p>
                 <a class="card-header-icon">
                     <b-icon :icon="props.open ? 'menu-down' : 'menu-up'" />
@@ -166,12 +160,7 @@ export default {
                     <div>
                         <label class="label">選項</label>
                         <div v-for="(answer, indx) in dataForm.answers" :key="indx" class="columns">
-                            <b-radio
-                                class="column is-1"
-                                v-model="dataForm.correct"
-                                name="name"
-                                :native-value="answer.id"
-                            >{{answer.id}}.</b-radio>
+                            <b-radio class="column is-1" v-model="dataForm.correct" name="name" :native-value="answer.id">{{answer.id}}.</b-radio>
                             <b-input
                                 :ref="`answerInput`"
                                 class="column"
@@ -187,12 +176,7 @@ export default {
                         <div class="level-left" />
 
                         <div class="level-right">
-                            <b-button
-                                class="level-item"
-                                type="is-success"
-                                outlined
-                                @click="modifyHandler"
-                            >
+                            <b-button class="level-item" type="is-success" outlined @click="modifyHandler">
                                 <b-icon icon="check" custom-size="default" />確定
                             </b-button>
                             <b-button class="level-item" type="is-danger" outlined @click="cancel">
@@ -207,11 +191,7 @@ export default {
         <card-component title="題庫列表" icon="table">
             <b-field grouped group-multiline>
                 <b-select v-model="perPage" :disabled="!isPaginated">
-                    <option
-                        v-for="page_number in pagelist"
-                        :key="page_number"
-                        :value="page_number"
-                    >{{page_number}}筆 / 頁</option>
+                    <option v-for="page_number in pagelist" :key="page_number" :value="page_number">{{page_number}}筆 / 頁</option>
                 </b-select>
             </b-field>
 
@@ -237,7 +217,7 @@ export default {
                 aria-current-label="Current page"
             >
                 <template slot-scope="props">
-                    <b-table-column field="id" label="ID" width="40" sortable>{{ props.row.id }}</b-table-column>
+                    <!-- <b-table-column field="id" label="ID" width="40" sortable>{{ props.row.id }}</b-table-column> -->
                     <b-table-column field="question" label="題目" sortable>{{ props.row.question }}</b-table-column>
                     <b-table-column label="操作" width="15rem">
                         <div class="level">
@@ -263,20 +243,10 @@ export default {
                 </template>
 
                 <template slot="detail" slot-scope="props">
-                    <b-table
-                        :data="props.row.answers"
-                        :sort-icon="`chevron-up`"
-                        :sort-icon-size="`is-small`"
-                        striped
-                        hoverable
-                    >
+                    <b-table :data="props.row.answers" :sort-icon="`chevron-up`" :sort-icon-size="`is-small`" striped hoverable>
                         <template slot-scope="answers">
-                            <b-table-column field="id" label="ID" sortable>{{ answers.row.id }}</b-table-column>
-                            <b-table-column
-                                field="option"
-                                label="選項"
-                                sortable
-                            >{{ answers.row.option }}</b-table-column>
+                            <!-- <b-table-column field="id" label="ID" sortable>{{ answers.row.id }}</b-table-column> -->
+                            <b-table-column field="option" label="選項" sortable>{{ answers.row.option }}</b-table-column>
                         </template>
                     </b-table>
                 </template>
@@ -286,7 +256,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    .columns:last-child {
-        margin-bottom: 0.75rem;
-    }
+.columns:last-child {
+    margin-bottom: 0.75rem;
+}
 </style>
