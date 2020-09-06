@@ -359,7 +359,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.7);
+    background-color: rgb(0, 0, 0, .8);
     padding-top: 52px;
 
     @media screen and (max-width: 768px) {
