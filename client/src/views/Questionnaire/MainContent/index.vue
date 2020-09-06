@@ -43,7 +43,6 @@ export default {
 
         const deviceDetector = new DeviceDetector();
         const device = computed(() => deviceDetector.parse(navigator.userAgent));
-        console.log(`setup -> device`, device);
         return {
             device
         };
@@ -71,12 +70,12 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url("~@/assets/images/PC-com-index-bg.png");
+    background-image: url('~@/assets/images/PC-com-index-bg.png');
     padding-left: calc(50% - 430px);
     padding-right: calc(50% - 430px);
 
     @media screen and (max-width: 768px) {
-        background-image: url("~@/assets/images/MOBILE-index-bg.png");
+        background-image: url('~@/assets/images/MOBILE-index-bg.png');
     }
     .goTest a {
         display: block;

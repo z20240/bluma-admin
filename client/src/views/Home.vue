@@ -150,6 +150,14 @@ export default {
                     intersect: 0,
                     position: 'nearest'
                 },
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: `題目`
+                        }
+                    }]
+                }
             };
         },
         lastest30days() {
@@ -244,6 +252,14 @@ export default {
                     intersect: 0,
                     position: 'nearest'
                 },
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: `日期`
+                        }
+                    }]
+                }
             };
         }
 
@@ -262,7 +278,6 @@ export default {
             try {
                 const { data } = await apiGetHistory(this.queryData);
                 this.logs = data.Data;
-                console.log("getHistory -> this.logs", this.logs);
             } catch (err) {
                 console.error("getHistory -> err", err);
                 this.$buefy.snackbar.open({

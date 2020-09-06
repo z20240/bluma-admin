@@ -10,8 +10,8 @@ const curry = (fn, n) => {
         return args.length >= arity
             ? fn.call(this, ...args)
             : (...rest) => {
-                return curried.call(this, ...args, ...rest);
-            };
+                  return curried.call(this, ...args, ...rest);
+              };
     };
 };
 
@@ -174,7 +174,7 @@ const _checkType = (val, typeString, opt) => {
         isTrueType =
             isTrueType &&
             Object.prototype.toString.call(val) === '[object Date]' &&
-                !isNaN(val);
+            !isNaN(val);
     } else {
         // Date 參數
         isTrueType =
@@ -199,7 +199,6 @@ const _checkType = (val, typeString, opt) => {
 const _getKeyValue = (key, args) => {
     let val = args[key];
 
-    console.log('--------------------------------------- key', key);
     if (key.split('.').length > 1) {
         val = args;
         let steps = key.split('.');

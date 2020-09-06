@@ -64,12 +64,11 @@ export default {
 
                 this.$router.push({ path: this.redirect || '/admin' });
             } catch (e) {
-                console.log('handleLogin -> e', e);
+                console.error('handleLogin -> e', e);
             }
         }
     },
     mounted() {
-        console.log(process.env);
         document.documentElement.classList.remove(...this.themeClassList);
     },
     destroyed() {

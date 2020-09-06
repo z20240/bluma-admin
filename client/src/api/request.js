@@ -24,7 +24,7 @@ service.interceptors.request.use(
     },
     error => {
         // Do something with request error
-        console.log(error); // for debug
+        console.error(error); // for debug
         Promise.reject(error);
     }
 );
@@ -39,8 +39,6 @@ service.interceptors.response.use(
      */
     response => {
         const { data } = response;
-        console.log('data', data);
-        console.log('Snackbar', SnackbarProgrammatic);
         if (data.StatusCode !== 0) {
             SnackbarProgrammatic.open({
                 message: `${data.StatusCode}: ${data.StatusDescription}`,
@@ -73,7 +71,6 @@ service.interceptors.response.use(
         }
     },
     error => {
-        console.log('err' + error); // for debug
         SnackbarProgrammatic.open({
             message: `${error.message}`,
             type: 'is-danger',

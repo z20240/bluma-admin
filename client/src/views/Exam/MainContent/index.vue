@@ -1,7 +1,7 @@
 <template>
     <div :class="isLoading ? 'rootWrapper' : ''">
         <div class="main-content" v-if="isLoading">
-			Loading
+            Loading
             <b-icon icon="dots-horizontal" size="is-large" />
         </div>
         <div v-else>
@@ -11,23 +11,12 @@
                         <img src="@/assets/images/test-logo.png" alt />
                     </div>
                     <div class="question_wrapper">
-                        <div
-                            class="logo"
-                            v-if="device.device.type === 'desktop'"
-                        >
+                        <div class="logo" v-if="device.device.type === 'desktop'">
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
                         <div class="question_bg">
-                            <img
-                                src="@/assets/images/PC-test-frame.png"
-                                alt="question"
-                                v-if="device.device.type === 'desktop'"
-                            />
-                            <img
-                                src="@/assets/images/MOBILE-test-frame.png"
-                                alt="question"
-                                v-else
-                            />
+                            <img src="@/assets/images/PC-test-frame.png" alt="question" v-if="device.device.type === 'desktop'" />
+                            <img src="@/assets/images/MOBILE-test-frame.png" alt="question" v-else />
                         </div>
                         <div class="text_layer">
                             <div class="question_text">
@@ -37,36 +26,24 @@
 
                             <div class="answers">
                                 <div class="row">
-                                    <div
-                                        class="yes answer_btn"
-                                        @click="handleClickAnswer(1)"
-                                    >
-                                        <img
-                                            src="@/assets/images/PC-com-a.png"
-                                            alt="question"
-                                        />
+                                    <div class="yes answer_btn" @click="handleClickAnswer(1)">
+                                        <img src="@/assets/images/PC-com-a.png" alt="question" />
                                     </div>
                                     <span>
                                         {{
-                                            questions[current_no].answers[0]
-                                                .option
+                                        questions[current_no].answers[0]
+                                        .option
                                         }}
                                     </span>
                                 </div>
                                 <div class="row">
-                                    <div
-                                        class="no answer_btn"
-                                        @click="handleClickAnswer(2)"
-                                    >
-                                        <img
-                                            src="@/assets/images/PC-com-b.png"
-                                            alt="question"
-                                        />
+                                    <div class="no answer_btn" @click="handleClickAnswer(2)">
+                                        <img src="@/assets/images/PC-com-b.png" alt="question" />
                                     </div>
                                     <span>
                                         {{
-                                            questions[this.current_no]
-                                                .answers[1].option
+                                        questions[this.current_no]
+                                        .answers[1].option
                                         }}
                                     </span>
                                 </div>
@@ -74,10 +51,7 @@
                         </div>
                     </div>
                     <div class="doctor">
-                        <img
-                            src="@/assets/images/PC-com-doctor ask.png"
-                            alt="pr.logo"
-                        />
+                        <img src="@/assets/images/PC-com-doctor ask.png" alt="pr.logo" />
                     </div>
                 </div>
             </section>
@@ -90,33 +64,21 @@
                 </div>
                 <div class="resultWrapper">
                     <div class="frame_bg">
-                        <div
-                            class="logo"
-                            v-if="device.device.type === 'desktop'"
-                        >
+                        <div class="logo" v-if="device.device.type === 'desktop'">
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
-                        <img
-                            src="@/assets/images/result_frame.png"
-                            alt="question"
-                        />
+                        <img src="@/assets/images/result_frame.png" alt="question" />
                         <div class="content">
                             <div class="doctor_gif">
-                                <img :src="handleShowGIF()" alt="" />
+                                <img :src="handleShowGIF()" alt />
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
-                                    <img
-                                        src="@/assets/images/result_score.png"
-                                        alt=""
-                                    />
+                                    <img src="@/assets/images/result_score.png" alt />
                                 </div>
-                                <div
-                                    class="score_hr"
-                                    v-if="device.device.type !== 'desktop'"
-                                ></div>
+                                <div class="score_hr" v-if="device.device.type !== 'desktop'"></div>
                                 <div class="score_number">
-                                    <img :src="handleShowScore()" alt="" />
+                                    <img :src="handleShowScore()" alt />
                                 </div>
                             </div>
                         </div>
@@ -124,10 +86,7 @@
                 </div>
             </div>
             <div class="resultBtn" v-else @click="showResult = true">
-                <img
-                    src="@/assets/images/PC-com-result.png"
-                    alt="go to see the result"
-                />
+                <img src="@/assets/images/PC-com-result.png" alt="go to see the result" />
             </div>
         </div>
     </div>
@@ -180,7 +139,7 @@ export default {
                 })
                 .catch(function(error) {
                     // 请求失败处理
-                    console.log(error);
+                    console.error(error);
                 });
         },
         async handleSubmit() {
@@ -228,11 +187,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .rootWrapper {
-	display: flex;
+    display: flex;
     height: 100vh;
 }
 .main-content {
-	flex: 1 0 auto;
+    flex: 1 0 auto;
     font-family: Aria;
     position: relative;
     display: flex;
@@ -359,7 +318,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, .8);
+    background-color: rgb(0, 0, 0, 0.8);
     padding-top: 52px;
 
     @media screen and (max-width: 768px) {

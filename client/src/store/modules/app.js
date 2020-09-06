@@ -1,5 +1,5 @@
 import { apiLoginByUsername } from '@/api';
-import {setToken, getToken, removeToken} from '@/utils/auth';
+import { setToken, getToken, removeToken } from '@/utils/auth';
 
 const state = {
     /* User */
@@ -48,7 +48,6 @@ const mutations = {
             isShow = !state.isAsideMobileExpanded;
         }
 
-        console.log('asideMobileStateToggle -> isShow', isShow);
         if (isShow) {
             document.documentElement.classList.add(htmlClassName);
         } else {
@@ -73,8 +72,10 @@ const actions = {
             };
 
             const user = { ...payload, ...details };
-            const {data} = await apiLoginByUsername(payload.name, payload.password);
-            console.log("data", data);
+            const { data } = await apiLoginByUsername(
+                payload.name,
+                payload.password
+            );
 
             setToken(data.Token);
             commit('LOGIN', user);
@@ -82,7 +83,7 @@ const actions = {
 
             return user;
         } catch (err) {
-            console.log('err', err);
+            console.error('err', err);
         }
     },
     async userUpdate({ commit }, payload) {
@@ -94,7 +95,7 @@ const actions = {
 
             return payload;
         } catch (err) {
-            console.log('userUpdate -> err', err);
+            console.error('err', err);
         }
     },
     async userPassword({ commit }, payload) {
@@ -105,9 +106,7 @@ const actions = {
             commit('LOGIN', payload);
 
             return payload;
-        } catch (err) {
-            console.log('userPassword -> err', err);
-        }
+        } catch (err) {}
     },
     userLogout({ commit }) {
         removeToken();
@@ -115,7 +114,7 @@ const actions = {
 
         return;
     },
-    userInfo({commit}, payload) {
+    userInfo({ commit }, payload) {
         commit('LOGIN', payload);
         commit('SET_TOKEN', getToken());
 

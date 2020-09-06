@@ -6,12 +6,10 @@ export function loginByUsername(username, password) {
         username,
         password
     };
-    console.log('loginByUsername -> authData', authData);
     const data = {
         test: 1234,
         what: 'daa'
     };
-    console.log('loginByUsername -> data', data);
 
     return request({
         url: '/api/users/login',

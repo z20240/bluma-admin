@@ -13,11 +13,9 @@ NProgress.configure({ showSpinner: false }); // NProgress Configuration
 const defaultDocumentTitle = '中正大學 - 犯罪防治中心';
 
 router.beforeEach(async (to, from, next) => {
-    console.log('to', to);
     NProgress.start();
 
     const token = getToken();
-    console.log("token", token);
 
     if (Utils.isEmpty(token)) {
         // 要到的頁面 (to)，它的 meta 如果有 requiresAuth 的話，就"不會"直接放行
@@ -29,7 +27,6 @@ router.beforeEach(async (to, from, next) => {
             if (Utils.isEmpty(store.getters.userInfo)) {
                 try {
                     const { data } = await apiGetUserInfo(token);
-                    console.log('~~~~> isEmpty', data);
                     store.dispatch('app/userInfo', data.Item);
                 } catch (err) {
                     await SnackbarProgrammatic.open({
