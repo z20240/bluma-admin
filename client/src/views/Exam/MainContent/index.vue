@@ -217,6 +217,7 @@ export default {
     .question_wrapper {
         position: relative;
         width: 100%;
+		max-width:700px;
 
         .question_text {
             font-size: 28px;
@@ -268,7 +269,7 @@ export default {
         .row {
             display: flex;
             justify-content: flex-start;
-            align-items: center;
+			align-items: flex-start;
 
             &:nth-child(1) {
                 margin-bottom: 10px;
