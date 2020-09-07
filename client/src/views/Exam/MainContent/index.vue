@@ -143,7 +143,7 @@ export default {
             current_no: 0,
             score: 0,
             isLoading: true,
-            showResultButton: true,
+            showResultButton: false,
             showResult: false
         };
     },
