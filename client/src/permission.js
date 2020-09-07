@@ -10,7 +10,7 @@ import { getToken } from '@/utils/auth';
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 /* Default title tag */
-const defaultDocumentTitle = '中正大學 - 犯罪防治中心';
+const defaultDocumentTitle = '中正大學 - 犯罪防制中心';
 
 router.beforeEach(async (to, from, next) => {
     NProgress.start();

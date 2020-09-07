@@ -14,7 +14,7 @@ const routes = [
         path: '/',
         component: () => import('@/views/Questionnaire'),
         meta: {
-            title: '中正大學犯罪防治中心'
+            title: '中正大學犯罪防制中心'
         }
     },
     {
