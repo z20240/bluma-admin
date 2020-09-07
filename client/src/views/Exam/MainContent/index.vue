@@ -145,9 +145,9 @@ export default {
         },
         async getIP() {
             axios
-                .get('http://api.ipify.org/?format=jso')
-                .then(response => {
-                    this.ip = response.data;
+                .get('http://api.ipify.org/?format=json')
+                .then(({data}) => {
+                    this.ip = data.ip;
                 })
                 .catch(function(error) {
                     // 请求失败处理
