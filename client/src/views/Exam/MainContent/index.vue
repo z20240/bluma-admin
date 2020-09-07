@@ -234,7 +234,7 @@ export default {
             position: absolute;
             z-index: 1;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -60%);
             @media screen and (max-width: 768px) {
                 max-width: 500px;
             }
@@ -356,7 +356,7 @@ export default {
 
     .logo {
         position: absolute;
-        top: -50px;
+        top: -70px;
         left: 50%;
         transform: translateX(-50%);
         min-width: 400px;
@@ -435,6 +435,8 @@ export default {
 
         .score {
             max-width: 180px;
+            display: flex;
+            align-items: center;
         }
 
         .score_hr {
