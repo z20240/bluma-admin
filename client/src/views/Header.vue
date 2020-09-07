@@ -6,7 +6,9 @@
 
         <div class="navbar-menu">
             <div class="navbar-end">
-                <a href="http://deptcrc.ccu.edu.tw"><span class="navbar-item">『防治藥物濫用中心．關心您!』</span></a>
+                <span class="navbar-item">
+                    <a href="http://deptcrc.ccu.edu.tw/" target="_blank">『防治藥物濫用中心．關心您!』</a>
+                </span>
             </div>
         </div>
     </nav>
@@ -14,7 +16,7 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: "Header",
 };
 </script>
 
@@ -36,7 +38,7 @@ export default {
                 right: -3.25rem;
                 top: 0;
                 z-index: -1;
-                content: ' ';
+                content: " ";
                 height: 100%;
                 width: 0px;
                 border-color: transparent orange white transparent;
@@ -55,7 +57,10 @@ export default {
     .navbar-menu {
         .navbar-end {
             .navbar-item {
-                color: white;
+                a,
+                a:visited {
+                    color: white;
+                }
                 font-weight: 700;
             }
         }

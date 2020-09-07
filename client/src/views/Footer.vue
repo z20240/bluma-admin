@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'Footer'
+    name: "Footer",
 };
 </script>
 
@@ -21,7 +21,7 @@ footer {
     }
     width: 100%;
     color: #fff;
-    background-color: rgb(116, 86, 4);
+    background-color: #302600;
 
     .content {
         p {
