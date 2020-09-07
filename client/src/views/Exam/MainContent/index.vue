@@ -11,20 +11,19 @@
                         <img src="@/assets/images/test-logo.png" alt />
                     </div>
                     <div
-                        :class="['question_wrapper', device.device.type === 'desktop' ? 'desktop' : '']"
+                        :class="[
+                            'question_wrapper',
+                            device.device.type === 'desktop' ? 'desktop' : ''
+                        ]"
                     >
-                        <div class="logo" v-if="device.device.type === 'desktop'">
+                        <div
+                            class="logo"
+                            v-if="device.device.type === 'desktop'"
+                        >
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
-                        <div v-if="device.device.type === 'desktop'" class="question_bg">
-                            <img src="@/assets/images/PC-test-frame.png" alt="question" />
-                        </div>
-                        <div
-                            :class="`${device.device.type === 'desktop' ? '' : 'question_bg question_bg-mobile'}`"
-                        >
-                            <div
-                                :class="['text_layer', device.device.type !== 'desktop' ? 'mobile' : ''] "
-                            >
+                        <div class="question_bg">
+                            <div class="text_layer">
                                 <div class="question_text">
                                     Q{{ current_no + 1 }}:
                                     {{ questions[current_no].question }}
@@ -32,24 +31,36 @@
 
                                 <div class="answers">
                                     <div class="row">
-                                        <div class="yes answer_btn" @click="handleClickAnswer(1)">
-                                            <img src="@/assets/images/PC-com-a.png" alt="question" />
+                                        <div
+                                            class="yes answer_btn"
+                                            @click="handleClickAnswer(1)"
+                                        >
+                                            <img
+                                                src="@/assets/images/PC-com-a.png"
+                                                alt="question"
+                                            />
                                         </div>
                                         <span>
                                             {{
-                                            questions[current_no].answers[0]
-                                            .option
+                                                questions[current_no].answers[0]
+                                                    .option
                                             }}
                                         </span>
                                     </div>
                                     <div class="row">
-                                        <div class="no answer_btn" @click="handleClickAnswer(2)">
-                                            <img src="@/assets/images/PC-com-b.png" alt="question" />
+                                        <div
+                                            class="no answer_btn"
+                                            @click="handleClickAnswer(2)"
+                                        >
+                                            <img
+                                                src="@/assets/images/PC-com-b.png"
+                                                alt="question"
+                                            />
                                         </div>
                                         <span>
                                             {{
-                                            questions[this.current_no]
-                                            .answers[1].option
+                                                questions[this.current_no]
+                                                    .answers[1].option
                                             }}
                                         </span>
                                     </div>
@@ -58,7 +69,10 @@
                         </div>
                     </div>
                     <div class="doctor">
-                        <img src="@/assets/images/PC-com-doctor ask.png" alt="pr.logo" />
+                        <img
+                            src="@/assets/images/PC-com-doctor ask.png"
+                            alt="pr.logo"
+                        />
                     </div>
                 </div>
             </section>
@@ -71,19 +85,31 @@
                 </div>
                 <div class="resultWrapper">
                     <div class="frame_bg">
-                        <div class="logo" v-if="device.device.type === 'desktop'">
+                        <div
+                            class="logo"
+                            v-if="device.device.type === 'desktop'"
+                        >
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
-                        <img src="@/assets/images/result_frame.png" alt="question" />
+                        <img
+                            src="@/assets/images/result_frame.png"
+                            alt="question"
+                        />
                         <div class="content">
                             <div class="doctor_gif">
                                 <img :src="handleShowGIF()" alt />
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
-                                    <img src="@/assets/images/result_score.png" alt />
+                                    <img
+                                        src="@/assets/images/result_score.png"
+                                        alt
+                                    />
                                 </div>
-                                <div class="score_hr" v-if="device.device.type !== 'desktop'"></div>
+                                <div
+                                    class="score_hr"
+                                    v-if="device.device.type !== 'desktop'"
+                                ></div>
                                 <div class="score_number">
                                     <img :src="handleShowScore()" alt />
                                 </div>
@@ -93,20 +119,23 @@
                 </div>
             </div>
             <div class="resultBtn" v-else @click="showResult = true">
-                <img src="@/assets/images/PC-com-result.png" alt="go to see the result" />
+                <img
+                    src="@/assets/images/PC-com-result.png"
+                    alt="go to see the result"
+                />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import DeviceDetector from "device-detector-js";
-import { apiGetExams, apiGetResult } from "@/api";
-import axios from "axios";
+import DeviceDetector from 'device-detector-js';
+import { apiGetExams, apiGetResult } from '@/api';
+import axios from 'axios';
 const deviceDetector = new DeviceDetector();
 
 export default {
-    name: "MainContent",
+    name: 'MainContent',
     data() {
         return {
             questions: [],
@@ -114,14 +143,14 @@ export default {
             current_no: 0,
             score: 0,
             isLoading: true,
-            showResultButton: false,
-            showResult: false,
+            showResultButton: true,
+            showResult: false
         };
     },
     computed: {
         device() {
             return deviceDetector.parse(navigator.userAgent);
-        },
+        }
     },
     mounted() {
         this.getExams();
@@ -140,11 +169,11 @@ export default {
         },
         async getIP() {
             axios
-                .get("http://api.ipify.org/?format=jso")
-                .then((response) => {
+                .get('http://api.ipify.org/?format=jso')
+                .then(response => {
                     this.ip = response.data;
                 })
-                .catch(function (error) {
+                .catch(function(error) {
                     // 请求失败处理
                     console.error(error);
                 });
@@ -154,7 +183,7 @@ export default {
                 this.isLoading = true;
                 const { data } = await apiGetResult({
                     ip: this.ip,
-                    answers: this.answers,
+                    answers: this.answers
                 });
                 this.isLoading = false;
                 this.score = data.Score;
@@ -172,24 +201,24 @@ export default {
             }
         },
         handleShowGIF() {
-            let filename = "";
+            let filename = '';
             if (this.score === 0) {
-                filename = "0";
+                filename = '0';
             } else if (this.score <= 30) {
-                filename = "30";
+                filename = '30';
             } else if (this.score <= 60) {
-                filename = "60";
+                filename = '60';
             } else if (this.score <= 90) {
-                filename = "90";
+                filename = '90';
             } else {
-                filename = "100";
+                filename = '100';
             }
             return require(`@/assets/images/gif/${filename}.gif`);
         },
         handleShowScore() {
             return require(`@/assets/images/number/${this.score}.png`);
-        },
-    },
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
@@ -205,19 +234,19 @@ export default {
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    // height: calc(100vh - 2 * 1rem);
     overflow: auto;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url("~@/assets/images/PC-com-bg.png");
+    background-image: url('~@/assets/images/PC-com-bg.png');
     padding: 10px;
 
     @media screen and (min-width: 769px) {
-        background-image: url("~@/assets/images/MOBILE-testpgae-bg.png");
+        background-image: url('~@/assets/images/MOBILE-testpgae-bg.png');
     }
 
     .container {
+		width: 700px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -229,25 +258,15 @@ export default {
 
     .question_wrapper {
         position: relative;
-        &.desktop {
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-image: url("~@/assets/images/PC-test-frame.png");
-            @media screen and (max-width: 768px) {
-                background-image: url("~@/assets/images/MOBILE-test-frame.png");
-            }
-        }
+		width: 100%;
 
         .question_text {
             font-size: 28px;
-            @media screen and (max-width: 500px) {
-                font-size: 20px;
-            }
         }
 
         .logo {
             position: absolute;
+			z-index: 1;
             left: 50%;
             transform: translate(-50%, -50%);
             @media screen and (max-width: 768px) {
@@ -255,43 +274,31 @@ export default {
             }
         }
         .question_bg {
-            &.question_bg-mobile {
-                position: relative;
-                min-width: 300px;
-                box-sizing: border-box;
-                padding: 20px;
-                background-image: url("~@/assets/images/MOBILE-test-frame.png");
-                background-position: center center;
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-            }
-
-            & > img {
-                opacity: 0;
+			min-width: 400px;
+			min-height: 300px;
+            position: relative;
+            box-sizing: border-box;
+            padding: 20px;
+            background-image: url('~@/assets/images/PC-test-frame.png');
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            @media screen and (max-width: 768px) {
+                background-image: url('~@/assets/images/MOBILE-test-frame.png');
+				padding: 10px;
             }
         }
     }
 
     .text_layer {
-        position: absolute;
-        &.mobile {
-            position: relative;
-        }
+        position: relative;
+        padding: 50px;
+
         text-align: left;
 
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         color: white;
         font-size: 20px;
         font-weight: bold;
-
-        @media screen and (max-width: 500px) {
-            padding: 20px;
-            top: 0%;
-            left: 0%;
-            transform: translate(0%, 0%);
-        }
     }
 
     .answers {
@@ -310,6 +317,7 @@ export default {
         }
 
         .answer_btn {
+			min-width: 50px;
             max-width: 50px;
             max-height: 50px;
             margin-right: 5px;
@@ -318,9 +326,7 @@ export default {
     }
 
     .doctor {
-        @media screen and (max-width: 768px) {
-            max-width: 300px;
-        }
+		max-width: 300px;
     }
 
     @media screen and (max-width: 768px) {
@@ -336,6 +342,7 @@ export default {
     }
 }
 .mask_bg {
+	z-index:2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -368,6 +375,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         @media screen and (max-width: 768px) {
+			width: 90%;
             bottom: 40%;
             & > img {
                 min-width: 250px;
@@ -468,15 +476,18 @@ export default {
             align-items: center;
             height: 50px;
             margin-left: 5px;
-            & > img {
-                @media screen and (min-width: 769px) {
-                    height: 130px;
-                }
-            }
+
             @media screen and (max-width: 768px) {
                 max-width: 180px;
                 height: 100px;
                 padding-top: 20px;
+            }
+
+			& > img {
+                height: 130px;
+				@media screen and (max-width: 768px) {
+					height: 100%;
+				}
             }
         }
     }
