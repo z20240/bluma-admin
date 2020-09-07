@@ -72,7 +72,7 @@
                         </div>
                         <div class="content">
                             <div class="doctor_gif">
-                                <img :src="handleShowGIF()" alt />
+                                <img :src="handleShowGIF" alt />
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
@@ -379,8 +379,13 @@ export default {
         background-size: 100% 100%;
         background-repeat: no-repeat;
 
+        .logo {
+            img {
+                max-height: 152px;
+            }
+        }
+
         & > img {
-            max-height: 152px;
             height: 100%;
             width: 100%;
         }
