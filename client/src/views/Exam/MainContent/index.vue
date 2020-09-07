@@ -342,7 +342,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         @media screen and (max-width: 768px) {
-            bottom: 50%;
+            bottom: 40%;
             & > img {
                 min-width: 250px;
             }

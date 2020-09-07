@@ -4,17 +4,19 @@
             <img class="navbar-item" src="@/assets/images/logo.png" width="230" />
         </div>
 
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <span class="navbar-item">『防治藥物濫用中心．關心您!』</span>
-            </div>
-        </div>
-    </nav>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <span class="navbar-item">
+          <a href="http://deptcrc.ccu.edu.tw/" target="_blank">『防治藥物濫用中心．關心您!』</a>
+        </span>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: "Header",
 };
 </script>
 
@@ -52,13 +54,15 @@ export default {
         }
     }
 
-    .navbar-menu {
-        .navbar-end {
-            .navbar-item {
-                color: white;
-                font-weight: 700;
-            }
+  .navbar-menu {
+    .navbar-end {
+      .navbar-item {
+        a,
+        a:visited {
+          color: white;
         }
+        font-weight: 700;
+      }
     }
 }
 </style>
