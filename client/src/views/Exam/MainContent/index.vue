@@ -72,7 +72,7 @@
                         </div>
                         <div class="content">
                             <div class="doctor_gif">
-                                <img :src="handleShowGIF" alt />
+                                <img :src="showGIF" alt />
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
@@ -116,6 +116,13 @@ export default {
     computed: {
         device() {
             return deviceDetector.parse(navigator.userAgent);
+        },
+        showGIF() {
+            if (this.score === 0) return require(`@/assets/images/gif/0.gif`);
+            if (this.score <= 30) return require(`@/assets/images/gif/30.gif`);
+            if (this.score <= 60) return require(`@/assets/images/gif/60.gif`);
+            if (this.score <= 90) return require(`@/assets/images/gif/90.gif`);
+            return require(`@/assets/images/gif/100.gif`);
         }
     },
     mounted() {
@@ -165,21 +172,6 @@ export default {
             } else {
                 this.current_no += 1;
             }
-        },
-        handleShowGIF() {
-            let filename = '';
-            if (this.score === 0) {
-                filename = '0';
-            } else if (this.score <= 30) {
-                filename = '30';
-            } else if (this.score <= 60) {
-                filename = '60';
-            } else if (this.score <= 90) {
-                filename = '90';
-            } else {
-                filename = '100';
-            }
-            return require(`@/assets/images/gif/${filename}.gif`);
         },
         handleShowScore() {
             return require(`@/assets/images/number/${this.score}.png`);
