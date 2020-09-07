@@ -91,10 +91,6 @@
                         >
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
-                        <img
-                            src="@/assets/images/result_frame.png"
-                            alt="question"
-                        />
                         <div class="content">
                             <div class="doctor_gif">
                                 <img :src="handleShowGIF()" alt />
@@ -390,7 +386,7 @@ export default {
 
     .logo {
         position: absolute;
-        top: -85px;
+        top: -50px;
         left: 50%;
         transform: translateX(-50%);
         min-width: 400px;
@@ -408,6 +404,11 @@ export default {
         position: relative;
         height: 500px;
         margin: 0 auto;
+		background-image: url('~@/assets/images/result_frame.png');
+		background-position: center center;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+
         & > img {
             height: 100%;
             width: 100%;
