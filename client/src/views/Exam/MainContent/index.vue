@@ -286,6 +286,7 @@ export default {
             @media screen and (max-width: 768px) {
                 background-image: url('~@/assets/images/MOBILE-test-frame.png');
 				padding: 10px;
+				min-width:0;
             }
         }
     }
