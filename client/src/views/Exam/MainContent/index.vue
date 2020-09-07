@@ -16,10 +16,7 @@
                             device.device.type === 'desktop' ? 'desktop' : ''
                         ]"
                     >
-                        <div
-                            class="logo"
-                            v-if="device.device.type === 'desktop'"
-                        >
+                        <div class="logo" v-if="device.device.type === 'desktop'">
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
                         <div class="question_bg">
@@ -31,36 +28,24 @@
 
                                 <div class="answers">
                                     <div class="row">
-                                        <div
-                                            class="yes answer_btn"
-                                            @click="handleClickAnswer(1)"
-                                        >
-                                            <img
-                                                src="@/assets/images/PC-com-a.png"
-                                                alt="question"
-                                            />
+                                        <div class="yes answer_btn" @click="handleClickAnswer(1)">
+                                            <img src="@/assets/images/PC-com-a.png" alt="question" />
                                         </div>
                                         <span>
                                             {{
-                                                questions[current_no].answers[0]
-                                                    .option
+                                            questions[current_no].answers[0]
+                                            .option
                                             }}
                                         </span>
                                     </div>
                                     <div class="row">
-                                        <div
-                                            class="no answer_btn"
-                                            @click="handleClickAnswer(2)"
-                                        >
-                                            <img
-                                                src="@/assets/images/PC-com-b.png"
-                                                alt="question"
-                                            />
+                                        <div class="no answer_btn" @click="handleClickAnswer(2)">
+                                            <img src="@/assets/images/PC-com-b.png" alt="question" />
                                         </div>
                                         <span>
                                             {{
-                                                questions[this.current_no]
-                                                    .answers[1].option
+                                            questions[this.current_no]
+                                            .answers[1].option
                                             }}
                                         </span>
                                     </div>
@@ -69,10 +54,7 @@
                         </div>
                     </div>
                     <div class="doctor">
-                        <img
-                            src="@/assets/images/PC-com-doctor ask.png"
-                            alt="pr.logo"
-                        />
+                        <img src="@/assets/images/PC-com-doctor ask.png" alt="pr.logo" />
                     </div>
                 </div>
             </section>
@@ -85,10 +67,7 @@
                 </div>
                 <div class="resultWrapper">
                     <div class="frame_bg">
-                        <div
-                            class="logo"
-                            v-if="device.device.type === 'desktop'"
-                        >
+                        <div class="logo" v-if="device.device.type === 'desktop'">
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
                         <div class="content">
@@ -97,15 +76,9 @@
                             </div>
                             <div class="scoreWrapper">
                                 <div class="score">
-                                    <img
-                                        src="@/assets/images/result_score.png"
-                                        alt
-                                    />
+                                    <img src="@/assets/images/result_score.png" alt />
                                 </div>
-                                <div
-                                    class="score_hr"
-                                    v-if="device.device.type !== 'desktop'"
-                                ></div>
+                                <div class="score_hr" v-if="device.device.type !== 'desktop'"></div>
                                 <div class="score_number">
                                     <img :src="handleShowScore()" alt />
                                 </div>
@@ -115,10 +88,7 @@
                 </div>
             </div>
             <div class="resultBtn" v-else @click="showResult = true">
-                <img
-                    src="@/assets/images/PC-com-result.png"
-                    alt="go to see the result"
-                />
+                <img src="@/assets/images/PC-com-result.png" alt="go to see the result" />
             </div>
         </div>
     </div>
@@ -242,7 +212,7 @@ export default {
     }
 
     .container {
-		width: 700px;
+        width: 700px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -254,7 +224,7 @@ export default {
 
     .question_wrapper {
         position: relative;
-		width: 100%;
+        width: 100%;
 
         .question_text {
             font-size: 28px;
@@ -262,7 +232,7 @@ export default {
 
         .logo {
             position: absolute;
-			z-index: 1;
+            z-index: 1;
             left: 50%;
             transform: translate(-50%, -50%);
             @media screen and (max-width: 768px) {
@@ -270,8 +240,8 @@ export default {
             }
         }
         .question_bg {
-			min-width: 400px;
-			min-height: 300px;
+            min-width: 400px;
+            min-height: 300px;
             position: relative;
             box-sizing: border-box;
             padding: 20px;
@@ -281,8 +251,8 @@ export default {
             background-repeat: no-repeat;
             @media screen and (max-width: 768px) {
                 background-image: url('~@/assets/images/MOBILE-test-frame.png');
-				padding: 10px;
-				min-width:0;
+                padding: 10px;
+                min-width: 0;
             }
         }
     }
@@ -314,7 +284,7 @@ export default {
         }
 
         .answer_btn {
-			min-width: 50px;
+            min-width: 50px;
             max-width: 50px;
             max-height: 50px;
             margin-right: 5px;
@@ -323,7 +293,7 @@ export default {
     }
 
     .doctor {
-		max-width: 300px;
+        max-width: 300px;
     }
 
     @media screen and (max-width: 768px) {
@@ -339,7 +309,7 @@ export default {
     }
 }
 .mask_bg {
-	z-index:2;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,7 +342,7 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         @media screen and (max-width: 768px) {
-			width: 90%;
+            width: 90%;
             bottom: 40%;
             & > img {
                 min-width: 250px;
@@ -404,17 +374,17 @@ export default {
         position: relative;
         height: 500px;
         margin: 0 auto;
-		background-image: url('~@/assets/images/result_frame.png'); //replace new image for pc
-		background-position: center center;
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
+        background-image: url('~@/assets/images/PC-result_frame.png'); //replace new image for pc
+        background-position: center center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
 
         & > img {
             height: 100%;
             width: 100%;
         }
         @media screen and (max-width: 768px) {
-			background-image: url('~@/assets/images/result_frame.png');
+            background-image: url('~@/assets/images/result_frame.png');
             min-width: 250px;
         }
     }
@@ -486,11 +456,11 @@ export default {
                 padding-top: 20px;
             }
 
-			& > img {
+            & > img {
                 height: 130px;
-				@media screen and (max-width: 768px) {
-					height: 100%;
-				}
+                @media screen and (max-width: 768px) {
+                    height: 100%;
+                }
             }
         }
     }
