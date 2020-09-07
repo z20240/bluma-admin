@@ -404,7 +404,7 @@ export default {
         position: relative;
         height: 500px;
         margin: 0 auto;
-		background-image: url('~@/assets/images/result_frame.png');
+		background-image: url('~@/assets/images/result_frame.png'); //replace new image for pc
 		background-position: center center;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
@@ -414,6 +414,7 @@ export default {
             width: 100%;
         }
         @media screen and (max-width: 768px) {
+			background-image: url('~@/assets/images/result_frame.png');
             min-width: 250px;
         }
     }
