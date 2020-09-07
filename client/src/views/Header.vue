@@ -6,7 +6,7 @@
 
         <div class="navbar-menu">
             <div class="navbar-end">
-                <span class="navbar-item">『防治藥物濫用中心．關心您!』</span>
+                <a href="http://deptcrc.ccu.edu.tw"><span class="navbar-item">『防治藥物濫用中心．關心您!』</span></a>
             </div>
         </div>
     </nav>

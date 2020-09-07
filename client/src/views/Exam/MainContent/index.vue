@@ -10,42 +10,49 @@
                     <div class="logo" v-if="device.device.type !== 'desktop'">
                         <img src="@/assets/images/test-logo.png" alt />
                     </div>
-                    <div class="question_wrapper">
+                    <div
+                        :class="['question_wrapper', device.device.type === 'desktop' ? 'desktop' : '']"
+                    >
                         <div class="logo" v-if="device.device.type === 'desktop'">
                             <img src="@/assets/images/test-logo.png" alt />
                         </div>
-                        <div class="question_bg">
-                            <img src="@/assets/images/PC-test-frame.png" alt="question" v-if="device.device.type === 'desktop'" />
-                            <img src="@/assets/images/MOBILE-test-frame.png" alt="question" v-else />
+                        <div v-if="device.device.type === 'desktop'" class="question_bg">
+                            <img src="@/assets/images/PC-test-frame.png" alt="question" />
                         </div>
-                        <div class="text_layer">
-                            <div class="question_text">
-                                Q{{ current_no + 1 }}:
-                                {{ questions[current_no].question }}
-                            </div>
-
-                            <div class="answers">
-                                <div class="row">
-                                    <div class="yes answer_btn" @click="handleClickAnswer(1)">
-                                        <img src="@/assets/images/PC-com-a.png" alt="question" />
-                                    </div>
-                                    <span>
-                                        {{
-                                        questions[current_no].answers[0]
-                                        .option
-                                        }}
-                                    </span>
+                        <div
+                            :class="`${device.device.type === 'desktop' ? '' : 'question_bg question_bg-mobile'}`"
+                        >
+                            <div
+                                :class="['text_layer', device.device.type !== 'desktop' ? 'mobile' : ''] "
+                            >
+                                <div class="question_text">
+                                    Q{{ current_no + 1 }}:
+                                    {{ questions[current_no].question }}
                                 </div>
-                                <div class="row">
-                                    <div class="no answer_btn" @click="handleClickAnswer(2)">
-                                        <img src="@/assets/images/PC-com-b.png" alt="question" />
+
+                                <div class="answers">
+                                    <div class="row">
+                                        <div class="yes answer_btn" @click="handleClickAnswer(1)">
+                                            <img src="@/assets/images/PC-com-a.png" alt="question" />
+                                        </div>
+                                        <span>
+                                            {{
+                                            questions[current_no].answers[0]
+                                            .option
+                                            }}
+                                        </span>
                                     </div>
-                                    <span>
-                                        {{
-                                        questions[this.current_no]
-                                        .answers[1].option
-                                        }}
-                                    </span>
+                                    <div class="row">
+                                        <div class="no answer_btn" @click="handleClickAnswer(2)">
+                                            <img src="@/assets/images/PC-com-b.png" alt="question" />
+                                        </div>
+                                        <span>
+                                            {{
+                                            questions[this.current_no]
+                                            .answers[1].option
+                                            }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,13 +100,13 @@
 </template>
 
 <script>
-import DeviceDetector from 'device-detector-js';
-import { apiGetExams, apiGetResult } from '@/api';
-import axios from 'axios';
+import DeviceDetector from "device-detector-js";
+import { apiGetExams, apiGetResult } from "@/api";
+import axios from "axios";
 const deviceDetector = new DeviceDetector();
 
 export default {
-    name: 'MainContent',
+    name: "MainContent",
     data() {
         return {
             questions: [],
@@ -108,13 +115,13 @@ export default {
             score: 0,
             isLoading: true,
             showResultButton: false,
-            showResult: false
+            showResult: false,
         };
     },
     computed: {
         device() {
             return deviceDetector.parse(navigator.userAgent);
-        }
+        },
     },
     mounted() {
         this.getExams();
@@ -133,11 +140,11 @@ export default {
         },
         async getIP() {
             axios
-                .get('http://api.ipify.org/?format=jso')
-                .then(response => {
+                .get("http://api.ipify.org/?format=jso")
+                .then((response) => {
                     this.ip = response.data;
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     // 请求失败处理
                     console.error(error);
                 });
@@ -147,7 +154,7 @@ export default {
                 this.isLoading = true;
                 const { data } = await apiGetResult({
                     ip: this.ip,
-                    answers: this.answers
+                    answers: this.answers,
                 });
                 this.isLoading = false;
                 this.score = data.Score;
@@ -165,24 +172,24 @@ export default {
             }
         },
         handleShowGIF() {
-            let filename = '';
+            let filename = "";
             if (this.score === 0) {
-                filename = '0';
+                filename = "0";
             } else if (this.score <= 30) {
-                filename = '30';
+                filename = "30";
             } else if (this.score <= 60) {
-                filename = '60';
+                filename = "60";
             } else if (this.score <= 90) {
-                filename = '90';
+                filename = "90";
             } else {
-                filename = '100';
+                filename = "100";
             }
             return require(`@/assets/images/gif/${filename}.gif`);
         },
         handleShowScore() {
             return require(`@/assets/images/number/${this.score}.png`);
-        }
-    }
+        },
+    },
 };
 </script>
 <style lang="scss" scoped>
@@ -203,11 +210,11 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url('~@/assets/images/PC-com-bg.png');
+    background-image: url("~@/assets/images/PC-com-bg.png");
     padding: 10px;
 
     @media screen and (min-width: 769px) {
-        background-image: url('~@/assets/images/MOBILE-testpgae-bg.png');
+        background-image: url("~@/assets/images/MOBILE-testpgae-bg.png");
     }
 
     .container {
@@ -222,12 +229,14 @@ export default {
 
     .question_wrapper {
         position: relative;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        background-image: url('~@/assets/images/PC-test-frame.png');
-        @media screen and (max-width: 768px) {
-            background-image: url('~@/assets/images/MOBILE-test-frame.png');
+        &.desktop {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-image: url("~@/assets/images/PC-test-frame.png");
+            @media screen and (max-width: 768px) {
+                background-image: url("~@/assets/images/MOBILE-test-frame.png");
+            }
         }
 
         .question_text {
@@ -245,14 +254,31 @@ export default {
                 max-width: 500px;
             }
         }
-        .question_bg > img {
-            opacity: 0;
+        .question_bg {
+            &.question_bg-mobile {
+                position: relative;
+                min-width: 300px;
+                box-sizing: border-box;
+                padding: 20px;
+                background-image: url("~@/assets/images/MOBILE-test-frame.png");
+                background-position: center center;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+
+            & > img {
+                opacity: 0;
+            }
         }
     }
 
     .text_layer {
-        text-align: left;
         position: absolute;
+        &.mobile {
+            position: relative;
+        }
+        text-align: left;
+
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
