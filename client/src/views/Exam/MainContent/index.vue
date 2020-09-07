@@ -356,7 +356,7 @@ export default {
 
     .logo {
         position: absolute;
-        top: -20%;
+        top: -76px;
         left: 50%;
         transform: translateX(-50%);
         min-width: 400px;
@@ -380,6 +380,7 @@ export default {
         background-repeat: no-repeat;
 
         & > img {
+            max-height: 152px;
             height: 100%;
             width: 100%;
         }
