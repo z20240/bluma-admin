@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="score_hr" v-if="device.device.type !== 'desktop'"></div>
                                 <div class="score_number">
-                                    <img :src="handleShowScore()" alt />
+                                    <img :src="showScore" alt />
                                 </div>
                             </div>
                         </div>
@@ -123,6 +123,9 @@ export default {
             if (this.score <= 60) return require(`@/assets/images/gif/60.gif`);
             if (this.score <= 90) return require(`@/assets/images/gif/90.gif`);
             return require(`@/assets/images/gif/100.gif`);
+        },
+        showScore() {
+            return require(`@/assets/images/number/${this.score}.png`);
         }
     },
     mounted() {
@@ -172,9 +175,6 @@ export default {
             } else {
                 this.current_no += 1;
             }
-        },
-        handleShowScore() {
-            return require(`@/assets/images/number/${this.score}.png`);
         }
     }
 };
