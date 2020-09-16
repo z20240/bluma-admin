@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="content has-text-centered">
-            <p>指導單位 | 教育部學生事務教育司．承辦單位 | 中正大學犯罪研究中心．反毒專線 | 0800-770885(請請您，幫幫我)</p>
+            <p>指導單位 | 教育部學生事務及特殊教育司．承辦單位 | 國立中正大學犯罪研究中心．反毒專線 | 0800-770885(請請您，幫幫我)</p>
             <p>Copyright © 2020防制藥物濫用教育中心CCU all rights reserved.</p>
         </div>
     </footer>

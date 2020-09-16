@@ -1,14 +1,14 @@
 {
-  "name": "admin-two-vue-bulma-dashboard",
-  "short_name": "admin-two-vue-bulma-dashboard",
+  "name": "防制藥物濫用教育中心",
+  "short_name": "防制藥物濫用教育中心",
   "icons": [
     {
-      "src": "./img/icons/android-chrome-192x192.png",
+      "src": "./img/icons/android-icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./img/icons/android-chrome-512x512.png",
+      "src": "./img/icons/apple-icon-152x152.png",
       "sizes": "512x512",
       "type": "image/png"
     }
