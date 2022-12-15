@@ -16,7 +16,7 @@
     "axios": "^0.21.2",
     "buefy": "^0.8.15",
     "bulma": "^0.7.5",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.4",
     "device-detector-js": "^2.2.1",
     "js-cookie": "^2.2.1",
